@@ -89,7 +89,7 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 
 	<Target Name="StageReadme" DependsOnTargets="GetAboutOpenStrataFromTextFile;GetPackageDescriptionFromTextFile;GetOpenStrataDisclaimerFromTextFile">
 
-		<Copy SourceFiles="$(MSBuildThisFileDirectory)template.txt\readme.template.md"
+		<!-- <Copy SourceFiles="$(MSBuildThisFileDirectory)template.txt\readme.template.md"
 			   DestinationFiles="readme.md"
 			  />
 
@@ -109,7 +109,7 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 			Path="readme.md"
 			Token="$aboutopenstrata$"
 			Replacement="$(AboutOpenStrataText)"
-			/>
+			/> -->
 
 	</Target>
 

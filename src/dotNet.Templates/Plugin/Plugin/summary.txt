@@ -1,1 +1,0 @@
-PluginTemplate.1.Plugin

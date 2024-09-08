@@ -1,3 +1,0 @@
-OstrataTemplate.1.Plugin
-
-$disclaimer$
