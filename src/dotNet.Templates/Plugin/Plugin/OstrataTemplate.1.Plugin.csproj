@@ -11,7 +11,7 @@
   <ItemGroup>
 	  <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.*" PrivateAssets="All" />
 	  <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.*" PrivateAssets="All" />
-	  <PackageReference Include="OpenStrata.MSBuild.Plugin" Version="ostrataversion">
+	  <PackageReference Include="OpenStrata.MSBuild.Plugin" Version="ostrataVersion">
           <PrivateAssets>all</PrivateAssets>
           <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
        </PackageReference>

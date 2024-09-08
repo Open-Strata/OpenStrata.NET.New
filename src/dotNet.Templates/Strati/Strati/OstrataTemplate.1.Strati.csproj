@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenStrata.MSBuild.Stratify" Version="ostrataversion">
+    <PackageReference Include="OpenStrata.MSBuild.Stratify" Version="ostrataVersion">
       <PrivateAssets>all</PrivateAssets>
       <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
     </PackageReference>

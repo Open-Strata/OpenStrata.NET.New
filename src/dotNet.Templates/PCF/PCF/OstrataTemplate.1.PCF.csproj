@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenStrata.MSBuild.PCF" Version="ostrataversion">
+    <PackageReference Include="OpenStrata.MSBuild.PCF" Version="ostrataVersion">
       <PrivateAssets>all</PrivateAssets>
       <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
     </PackageReference>

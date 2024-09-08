@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<PackageReference Include="OpenStrata.MSBuild.AppSource" Version="ostrataversion">
+    <!--<PackageReference Include="OpenStrata.MSBuild.AppSource" Version="ostrataVersion">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>-->
-    <PackageReference Include="OpenStrata.MSBuild.PowerPages" Version="ostrataversion">
+    <PackageReference Include="OpenStrata.MSBuild.PowerPages" Version="ostrataVersion">
       <PrivateAssets>all</PrivateAssets>
       <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
     </PackageReference>
