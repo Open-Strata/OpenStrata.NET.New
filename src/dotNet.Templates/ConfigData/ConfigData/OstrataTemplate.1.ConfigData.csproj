@@ -5,9 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Openstrata.MSBuild.ConfigData" Version="1.*">
+    <PackageReference Include="Openstrata.MSBuild.ConfigData" Version="ostrataVersion">
       <PrivateAssets>all</PrivateAssets>
-      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
     </PackageReference>
   </ItemGroup>
 

@@ -4,13 +4,26 @@
 		<TargetFramework>net472</TargetFramework>
 
 		<!--<RemoveActiveDependencies>true</RemoveActiveDependencies>	-->		
+
+		<!-- <IncludeAutoNumbering >true</IncludeAutoNumbering> -->
+		<!-- <IncludeCalendar >true</IncludeCalendar> -->
+		<!-- <IncludeCustomization >true</IncludeCustomization> -->
+		<!-- <IncludeEmailTracking >true</IncludeEmailTracking> -->
+		<!-- <IncludeAutoNumbering >true</IncludeAutoNumbering> -->
+		<!-- <IncludeGeneral >true</IncludeGeneral> -->
+		<!-- <IncludeISVConfig >true</IncludeISVConfig> -->
+		<!-- <IncludeMarketing >true</IncludeMarketing> -->
+		<!-- <IncludeOutlookSynchronization >true</IncludeOutlookSynchronization> -->
+		<!-- <IncludeRelationshipRoles >true</IncludeRelationshipRoles> -->
+		<!-- <IncludeSales >true</IncludeSales> -->
+
+
 	
 	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="OpenStrata.MSBuild.Solution" Version="ostrataVersion">
       <PrivateAssets>all</PrivateAssets>
-      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
     </PackageReference>
 
 	  <!--Modify the publisher reference as appropriate -->
@@ -23,6 +36,7 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<PcfReference Include="..\*\*.pcfproj" Exclude="@(PcfProjExcludes)" />
 		<PcfReference Include="..\PCF\OstrataTemplate.1.PCF.csproj" Condition="Exists('..\PCF\OstrataTemplate.1.PCF.csproj')" />
 		<PluginReference Include="..\Plugin\OstrataTemplate.1.Plugin.csproj" Condition="Exists('..\Plugin\OstrataTemplate.1.Plugin.csproj')"/>
 	</ItemGroup>
@@ -30,7 +44,9 @@
 	<ItemGroup Label="SolutionXmlDependencyCleanup">
 		<!--<AttributeDependenciesToRemove Include="[AttributeID]" />-->
 		<!--<SolutionDependenciesToRemove Include="[SolutionID]" />-->
-		<!--<SolutionDependenciesToRemove Include="[SolutionID]" />-->
+		<!--<RequiredTypeDependenciesToRemove Include="[ComponentType]" />-->
+		<!--<DependentTypeDependenciesToRemove Include="[ComponentType]" />-->
+		<!--<SolutionDependencyMinVersion Include="[SolutionID]" MinVersion="[MinVersion]"  />-->						   
 	</ItemGroup>
 
 </Project>

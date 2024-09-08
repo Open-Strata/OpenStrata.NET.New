@@ -13,7 +13,6 @@
 	  <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.*" PrivateAssets="All" />
 	  <PackageReference Include="OpenStrata.MSBuild.Plugin" Version="ostrataVersion">
           <PrivateAssets>all</PrivateAssets>
-          <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
        </PackageReference>
   </ItemGroup>
 
@@ -25,7 +24,7 @@
 		<!-- <Version>$(FileVersion)</Version> -->
 		<Authors>$(Authors)</Authors>
 		<Company>$(Company)</Company>
-		<Description>Plugion Package for OstrataTemplate.1</Description>
+		<Description>Plugin Package for OstrataTemplate.1</Description>
 	</PropertyGroup>
 
 	<Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets')" />
