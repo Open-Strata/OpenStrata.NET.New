@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "OpenStrata",
+  "classifications": [ "Common", "OpenStrata", "Dataverse", "Power Platform" ],
+  "identity": "OpenStrata.NET.Essentials",
+  "name": "OpenStrata Essentials",
+  "shortName": "os-essentials",
+  "sourceName": "OstrataTemplate.1"
+}

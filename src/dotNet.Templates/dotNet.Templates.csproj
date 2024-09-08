@@ -85,7 +85,8 @@
 	  <Content Include="ConfigData\**\*" PackagePath="\content\ConfigData\" />
 	  <Content Include="Deployment\**\*" PackagePath="\content\Deployment\" />
 	  <Content Include="Plugin\**\*" PackagePath="\content\Plugin\" />
-	  
+      <Content Include="Essentials\**\*" Exclude="Essentials\rm.gitignore" PackagePath="\content\Essentials\" />
+
 	  <Content Include="DocumentTemplates\**\*" PackagePath="\content\DocumentTemplates\" />	
 	  
 	  <Content Include="PCF\**\*" PackagePath="\content\PCF\" />
@@ -93,26 +94,14 @@
 	  <Content Include="PowerPages\**\*" PackagePath="\content\PowerPages\" />
 
 	  <Content Include="DotNetSolution\**\*" PackagePath="\content\DotNetSolution\" />
+
+	  <Content Include="Essentials\**\*" Exclude="Essentials\.template.config\*;Essentials\rm.gitignore" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Solution\**\*" Exclude="Solution\.template.config\*" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Strati\**\*" Exclude="Strati\.template.config\*" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Package\**\*" Exclude="Package\.template.config\*" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="ConfigData\**\*" Exclude="ConfigData\.template.config\*" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Deployment\**\*" Exclude="Deployment\.template.config\*" PackagePath="\content\DotNetSolution\" />
 
-
-
-	  <!--Including userbuild as part of dotnet template-->
-	  <Content Include="UserBuild\**\*" PackagePath="\content\DotNetSolution\" />
-	  <Content Include="UserBuild\**\*" PackagePath="\content\UserBuild\" />
-
-	  <Content Include="UserBuildGlobal\**\*" PackagePath="\content\UserBuildGlobal\" />
-
-	  <Content Include="StageBuild\**\*" PackagePath="\content\StageBuild\" />
-	  <Content Include="StageBuild\**\*" PackagePath="\content\DotNetSolution\" />
-
-	  <Content Include="DevOps\**\*" PackagePath="\content\DevOps\" />
-	  <Content Include="DevOps\**\*" PackagePath="\content\DotNetSolution\" />
-	  
 	  <Compile Remove="**\**" />
 	  
 	  <Compile Remove="Pipelines\**" />
@@ -143,7 +132,11 @@
 	  
 	  <!--.gitignore dotfilename workaround-->
 	  
+  <!--.gitignore dotfilename workaround-->
 
+
+	  <Content Include="Essentials\rm.gitignore" PackagePath="\content\DotNetSolution\.gitignore" />
+	  <Content Include="Essentials\rm.gitignore" PackagePath="\content\Essentials\.gitignore" />
 
   </ItemGroup>	
 
