@@ -11,6 +11,7 @@
       "path": "Strati\\OstrataTemplate.1.Strati.csproj"
     }
   ],
+  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
   "postActions": [
     {
       "description": "Adding to solution.",

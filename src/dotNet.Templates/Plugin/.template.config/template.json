@@ -14,6 +14,7 @@
   "guids": [
     "81f6f71d-7dc3-ee11-9079-001dd80314e5"
   ],
+  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
   "postActions": [
     {
       "description": "Adding to solution.",

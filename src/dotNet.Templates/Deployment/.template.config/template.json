@@ -11,6 +11,7 @@
       "path": "Deployment\\OstrataTemplate.1.Deployment.csproj"
     }
   ],
+  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
   "postActions": [
     {
       "description": "Adding to solution.",

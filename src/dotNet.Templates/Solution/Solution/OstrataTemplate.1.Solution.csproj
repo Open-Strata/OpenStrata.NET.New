@@ -8,7 +8,7 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenStrata.MSBuild.Solution" Version="0.8.*">
+    <PackageReference Include="OpenStrata.MSBuild.Solution" Version="ostrataversion">
       <PrivateAssets>all</PrivateAssets>
       <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
     </PackageReference>

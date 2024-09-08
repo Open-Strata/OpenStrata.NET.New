@@ -11,6 +11,7 @@
       "path": "OstrataTemplate.1.sln"
     }
   ],
+  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
   "guids": [
     "62B8C8AF-2900-4FF8-9F43-3C688FECD2F6",
     "9F9B27DE-E80A-45D2-8409-68DBA02DF81E",
