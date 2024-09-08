@@ -1,0 +1,10 @@
+<pluginpackage uniquename="PluginTemplate.1.Plugin">
+  <pluginpackageid>81f6f71d-7dc3-ee11-9079-001dd80314e5</pluginpackageid>
+  <exportkeyversion>1</exportkeyversion>
+  <iscustomizable>1</iscustomizable>
+  <name>PluginTemplate.1.Plugin</name>
+  <package mimetype="application/octet-stream">PluginTemplate.1.Plugin.nupkg</package>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <version>1.0.0</version>
+</pluginpackage>

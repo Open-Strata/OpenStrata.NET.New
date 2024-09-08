@@ -1,0 +1,103 @@
+﻿<!--
+***********************************************************************************************
+Directory.Packages.props
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights reserved.
+***********************************************************************************************
+-->
+<Project  xmlns='http://schemas.microsoft.com/developer/msbuild/2003' >
+
+	<PropertyGroup>
+
+
+		<!--<DerivativeNamePrefix></DerivativeNamePrefix>-->
+
+		<Version>0.8.1</Version>
+
+		
+		<LocalPackageFeed>C:\Packages</LocalPackageFeed>
+
+		<PushAfterBuild Condition="'$(PushAfterBuild)'==''">false</PushAfterBuild>
+		<PushAfterBuild Condition="'$(Configuration)'=='Release'">true</PushAfterBuild>		
+
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PrepareForBuildDependsOn>PrepareForOpenStrataDevBuild; $(PrepareForBuildDependsOn)</PrepareForBuildDependsOn>
+		<PrepareForOpenStrataDevBuildDependsOn>$(PrepareForOpenStrataDevBuildDependsOn)</PrepareForOpenStrataDevBuildDependsOn>
+		<GenerateNuspecDependsOn>SetGitInfoForPackage; SetVersionFromGitInfo; $(GenerateNuspecDependsOn)</GenerateNuspecDependsOn>
+		<CoreCompileDependsOn>SetVersionFromGitInfo; CheckForCommitBeforePacking; $(CoreCompileDependsOn)</CoreCompileDependsOn>
+		<GetPackageVersionDependsOn>SetVersionFromGitInfo; $(GetPackageVersionDependsOn)</GetPackageVersionDependsOn>
+
+		<GitVersion>false</GitVersion>
+
+		<GitInfoReportImportance>high</GitInfoReportImportance>
+		<IncludeGitInfoInPackage>true</IncludeGitInfoInPackage>
+		<UseGitInfoForVersions>true</UseGitInfoForVersions>
+
+		<GitDefaultBranch>master</GitDefaultBranch>
+		
+	</PropertyGroup>
+	
+	<PropertyGroup Label="Nuget Packaging Properties">
+		<Authors>OpenStrata Initiative</Authors>
+		<Copyright>Copyright (c) 74Bravo LLC and Contributors. All rights reserved.</Copyright>
+		<Company>74 Bravo, LLC.</Company>
+		<Product>OpenStrata ALM Tools</Product>
+		<!--<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>-->
+		<PackageLicenseExpression>APSL-2.0</PackageLicenseExpression>
+		<PackageIcon>ICON.png</PackageIcon>
+		<PackageIconUrl />
+		<PackageVersion>$(Version)</PackageVersion>
+
+		<PackageReleaseNotesPath>releaseNotes.txt</PackageReleaseNotesPath>
+		<PackageDescriptionPath>description.txt</PackageDescriptionPath>
+		<PackageSummaryPath>summary.txt</PackageSummaryPath>
+
+		<PackageReadmePath>readme.md</PackageReadmePath>
+		
+		<PackageReadmeFile Condition="Exists('$(PackageReadmePath)')">docs\readme.md</PackageReadmeFile>
+
+		<PackageTags>OpenStrata;PowerPlatform;PowerApps;Dataverse;CDS;CommonDataService;Dynamics365;D365;XRM;CRM;Dynamics;$(PackageTags)</PackageTags>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="$(PackageReadmePath)" Condition="Exists('$(PackageReadmePath)')">
+			<Pack>true</Pack>
+			<PackagePath>docs\</PackagePath>
+		</None>
+		<None Include="$(PackageDescriptionPath)" Condition="Exists('$(PackageDescriptionPath)')">
+			<Pack>false</Pack>
+		</None>
+		<None Include="$(PackageReleaseNotesPath)" Condition="Exists('$(PackageReleaseNotesPath)')">
+			<Pack>false</Pack>
+		</None>
+		<None Include="$(PackageSummaryPath)" Condition="Exists('$(PackageSummaryPath)')">
+			<Pack>false</Pack>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!--<PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.11.0">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>-->
+		<PackageReference Include="GitInfo" Version="3.3.3" Condition="">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<!--Setting AfterMicrosoftNETSdkTargets to trigger the importing of Directory.Packages.targets when appropriate.-->
+		<AfterMicrosoftNETSdkTargets>
+			$(AfterMicrosoftNETSdkTargets);
+			$(MSBuildThisFileDirectory)Directory.Packages.targets;
+		</AfterMicrosoftNETSdkTargets>
+	</PropertyGroup>
+	
+</Project>

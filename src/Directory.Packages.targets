@@ -1,0 +1,324 @@
+﻿<!--
+***********************************************************************************************
+Directory.Packages.props
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights reserved.
+***********************************************************************************************
+-->
+<Project  xmlns='http://schemas.microsoft.com/developer/msbuild/2003' >
+
+
+		<!-- OpenStrataTokenReplace TokenReplace - Used to replace tokens in files.
+		Sample usage.
+		<Target Name='Demo' >
+			<TokenReplace Path="C:\Project\Target.config" Token="$MyToken$" Replacement="MyValue"/>
+		</Target>
+		-->
+
+		<UsingTask TaskName="OpenStrataTokenReplace" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+			<ParameterGroup>
+				<Path ParameterType="System.String" Required="true" />
+				<Token ParameterType="System.String" Required="true" />
+				<Replacement ParameterType="System.String" Required="true" />
+			</ParameterGroup>
+			<Task>
+				<Code Type="Fragment" Language="cs">
+					<![CDATA[
+					string content = File.ReadAllText(Path);
+					content = content.Replace(Token, Replacement);
+					File.WriteAllText(Path, content);
+					]]>
+				</Code>
+			</Task>
+		</UsingTask>
+
+	<UsingTask TaskName="OpenStrataGetTextFileContents" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+		<ParameterGroup>
+			<TxtFilePath ParameterType="System.String" Required="true"   />
+			<FileTxt ParameterType="System.String" Output="true" />
+		</ParameterGroup>
+		<Task>
+			<Using Namespace="System.IO"/>
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+				
+					FileTxt = string.Empty;
+
+					if (File.Exists(TxtFilePath))
+					{
+						FileTxt = File.ReadAllText(TxtFilePath);
+					}
+				
+					]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<PropertyGroup>
+		<aboutOpenStrataPath>$(MSBuildThisFileDirectory)template.txt\aboutopenstrata.txt</aboutOpenStrataPath>
+		<openStrataDisclaimerPath>$(MSBuildThisFileDirectory)template.txt\disclaimer.txt</openStrataDisclaimerPath>
+	</PropertyGroup>
+
+	<Target Name="GetAboutOpenStrataFromTextFile" Condition="Exists('$(aboutOpenStrataPath)')" >
+
+		<OpenStrataGetTextFileContents
+			TxtFilePath="$(aboutOpenStrataPath)"
+			>
+			<Output
+			  TaskParameter="FileTxt"
+			  PropertyName="AboutOpenStrataText"/>
+		</OpenStrataGetTextFileContents>
+
+	</Target>
+
+	<Target Name="GetOpenStrataDisclaimerFromTextFile" Condition="Exists('$(openStrataDisclaimerPath)')" >
+
+		<OpenStrataGetTextFileContents
+			TxtFilePath="$(openStrataDisclaimerPath)"
+			>
+			<Output
+			  TaskParameter="FileTxt"
+			  PropertyName="OpenStrataDisclaimerText"/>
+		</OpenStrataGetTextFileContents>
+
+	</Target>
+
+	<Target Name="StageReadme" DependsOnTargets="GetAboutOpenStrataFromTextFile;GetPackageDescriptionFromTextFile;GetOpenStrataDisclaimerFromTextFile">
+
+		<Copy SourceFiles="$(MSBuildThisFileDirectory)template.txt\readme.template.md"
+			   DestinationFiles="readme.md"
+			  />
+
+		<OpenStrataTokenReplace
+			Path="readme.md"
+			Token="$description$"
+			Replacement="$(ReadmeDescription)"
+			/>
+
+		<OpenStrataTokenReplace
+			Path="readme.md"
+			Token="$disclaimer$"
+			Replacement="$(OpenStrataDisclaimerText)"
+			/>		
+		
+		<OpenStrataTokenReplace
+			Path="readme.md"
+			Token="$aboutopenstrata$"
+			Replacement="$(AboutOpenStrataText)"
+			/>
+
+	</Target>
+
+
+	<Target Name="GetPackageReleaseNotesFromTextFile" Condition="Exists('$(PackageReleaseNotesPath)')"
+			DependsOnTargets="GetAboutOpenStrataFromTextFile;GetOpenStrataDisclaimerFromTextFile">
+
+		<OpenStrataGetTextFileContents
+			TxtFilePath="$(PackageReleaseNotesPath)"
+			>
+			<Output
+			  TaskParameter="FileTxt"
+			  PropertyName="PackageReleaseNotes"/>
+		</OpenStrataGetTextFileContents>
+
+		<PropertyGroup>
+			<PackageReleaseNotes>$(PackageReleaseNotes.Replace('$disclaimer$','$(OpenStrataDisclaimerText)'))</PackageReleaseNotes>
+		</PropertyGroup>
+
+	</Target>
+
+	<Target Name="GetPackageDescriptionFromTextFile" Condition="Exists('$(PackageDescriptionPath)')"
+			DependsOnTargets="GetAboutOpenStrataFromTextFile;GetOpenStrataDisclaimerFromTextFile">
+
+		<OpenStrataGetTextFileContents
+			TxtFilePath="$(PackageDescriptionPath)"
+			>
+			<Output
+			  TaskParameter="FileTxt"
+			  PropertyName="ReadmeDescription"/>
+		</OpenStrataGetTextFileContents>
+
+		<PropertyGroup>
+			<PackageDescription>$(PackageDescription.Replace('$disclaimer$','$(OpenStrataDisclaimerText)').Replace('$aboutopenstrata$', '$(AboutOpenStrataText)'))</PackageDescription>
+		</PropertyGroup>
+
+	</Target>
+
+	<Target Name="GetPackageSummaryFromTextFile" Condition="Exists('$(PackageSummaryPath)')"
+			DependsOnTargets="GetAboutOpenStrataFromTextFile;GetOpenStrataDisclaimerFromTextFile">
+
+		<OpenStrataGetTextFileContents
+			TxtFilePath="$(PackageSummaryPath)"
+			>
+			<Output
+			  TaskParameter="FileTxt"
+			  PropertyName="PackageDescription"/>
+		</OpenStrataGetTextFileContents>
+
+	</Target>
+
+	<PropertyGroup>
+		<GetPackageMetadataFromFilesDependsOn>
+			GetPackageSummaryFromTextFile;
+			GetPackageReleaseNotesFromTextFile;
+			GetPackageDescriptionFromTextFile;
+			StageReadme;
+			$(GetPackageMetadataFromFilesDependsOn)
+		</GetPackageMetadataFromFilesDependsOn>
+	</PropertyGroup>
+	
+
+
+	<Target Name="MoveNugetPackageToLocalPackageFeed" AfterTargets="Pack" 
+			 DependsOnTargets="_ProcessGenerateNuspecOutput; $(MoveNugetPackageToLocalPackageFeedDependsOn)"
+	   Condition="'$(MSBuildProjectName)' != 'MSBuild.Nuget'"   >
+
+		<Copy SourceFiles="$(NugetFileAbsolutePath)"
+			  DestinationFolder="$(LocalPackageFeed)"
+			  SkipUnchangedFiles="true"
+			   Condition="'$(NugetFileAbsolutePath)' != ''" />
+		
+	</Target>
+
+
+	<Target Name="CustomAfterBuildTarget" AfterTargets="Build" Condition="'$(PushAfterBuild)'!='true'">
+		<Message Text="To push after build, use the command 'dotnet build -p:PushAfterBuild=true" Importance="high" />
+	</Target>
+
+	<Target Name="PushPackage" AfterTargets="Pack" Condition="'$(PushAfterBuild)'=='true'"
+			 DependsOnTargets="_ProcessGenerateNuspecOutput; $(MoveNugetPackageToLocalPackageFeedDependsOn)">
+		<Message Text="Attempting to push package" Importance="high" />
+
+		<PropertyGroup>
+			<PushPackagePath>$(ProjectDir)$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg</PushPackagePath>
+		</PropertyGroup>
+
+		<Copy
+		SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"
+		DestinationFolder="c:\packages" Condition="Exists('$(PushPackagePath)')"
+      />
+
+		<Exec Command='dotnet nuget push "$(PushPackagePath)" -k AzureDevOps --skip-duplicate' Condition="Exists('$(PushPackagePath)')" />
+
+	</Target>
+
+
+
+
+	<Target Name="_EnsureStrongNameKeyExists" Condition="!Exists('$(AssemblyName).snk')" >
+		
+		
+		<!--DEPRECATING STRONG NAME BEHAVIOR-->
+		<!--<Exec Command="$(SNExe) -k $(AssemblyName).snk" />-->
+
+	</Target>
+
+	<Target Name="SetGitInfoForPackage"
+			Condition="'$(GitInfoImported)' == 'true'"
+			DependsOnTargets="GitInfo">
+
+		<PropertyGroup>
+
+			<RepositoryUrl>$(GitRepositoryUrl)</RepositoryUrl>
+			<RepositoryType>git</RepositoryType>
+			<RepositoryBranch>$(GitBranch)</RepositoryBranch>
+			<RepositoryCommit>$(GitCommit)</RepositoryCommit>
+
+		</PropertyGroup>
+ 
+	</Target>
+
+	<Target Name="SetVersionFromGitInfo"
+			Condition="'$(GitInfoImported)' == 'true'"
+			DependsOnTargets="GitVersion">
+
+		<PropertyGroup>
+			<Version>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)</Version>
+			<PackageVersion>$(Version)$(GitSemVerDashLabel)</PackageVersion>
+		</PropertyGroup>
+
+	</Target>
+
+
+	<Target Name="_CopyDescriptionTemplateIfItDoeNotExist" Condition="!Exists('description.txt')">
+
+		<Copy SourceFiles="$(MSBuildThisFileDirectory)template.txt\description.template.txt"
+			   DestinationFiles="description.txt"
+			   Condition="!Exists('description.txt')" />
+		
+		<OpenStrataTokenReplace
+			Path="description.txt"
+			Token="$assemblyname$"
+			Replacement="$(AssemblyName)"
+			/>		
+		
+	</Target>
+
+	<Target Name="_CopyReleaseNotesTemplateIfItDoeNotExist" Condition="!Exists('releaseNotes.txt')">
+
+		<Copy SourceFiles="$(MSBuildThisFileDirectory)template.txt\releaseNotes.template.txt"
+			   DestinationFiles="releaseNotes.txt"
+			   Condition="!Exists('releaseNotes.txt')" />
+
+		<OpenStrataTokenReplace
+			Path="releaseNotes.txt"
+			Token="$assemblyname$"
+			Replacement="$(AssemblyName)"
+			/>
+
+	</Target>
+
+	<Target Name="_CopySummaryTemplateIfItDoeNotExist" Condition="!Exists('summary.txt')">
+
+		<Copy SourceFiles="$(MSBuildThisFileDirectory)template.txt\summary.template.txt"
+			   DestinationFiles="summary.txt"
+			   Condition="!Exists('summary.txt')" />
+
+		<OpenStrataTokenReplace
+			Path="summary.txt"
+			Token="$assemblyname$"
+			Replacement="$(AssemblyName)"
+			/>
+
+	</Target>
+
+	<PropertyGroup>
+		<PrepareForOpenStrataDevBuildDependsOn>
+			_EnsureStrongNameKeyExists;
+			EnsureDescriptionAndReleaseNotesExist;
+			$(PrepareForOpenStrataDevBuildDependsOn)
+		</PrepareForOpenStrataDevBuildDependsOn>
+	</PropertyGroup>
+
+
+	<Target Name="EnsureDescriptionAndReleaseNotesExist"
+			DependsOnTargets="_CopyDescriptionTemplateIfItDoeNotExist;_CopyReleaseNotesTemplateIfItDoeNotExist;_CopySummaryTemplateIfItDoeNotExist">
+		
+	</Target>
+
+
+	<Target Name="PrepareForOpenStrataDevBuild"
+			DependsOnTargets="$(PrepareForOpenStrataDevBuildDependsOn)">
+	</Target>
+
+	<Target Name="GetOutputItemsFromPackDependsOn" BeforeTargets="_GetOutputItemsFromPack"
+			DependsOnTargets="SetVersionFromGitInfo">
+
+	</Target>
+
+	<Target Name="CheckForCommitBeforePacking"
+			Condition="'$(IsPackable)' == 'true' and '$(GitInfoImported)' == 'true'"
+			DependsOnTargets="_GitRoot" >
+
+		<Warning
+            Text=" There are uncommitted changes.  Please commit changes and rebuild prior to publishing the nuget package."
+            Condition="'$(GitIsDirty)' != '0'" />
+
+	</Target>	
+	
+	
+</Project>

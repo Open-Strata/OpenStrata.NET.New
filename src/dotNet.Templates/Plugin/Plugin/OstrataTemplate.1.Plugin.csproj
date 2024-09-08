@@ -1,0 +1,33 @@
+﻿<Project Sdk="OpenStrata.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <PowerAppsTargetsPath>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\PowerApps</PowerAppsTargetsPath>
+    <ProjectTypeGuids>{4C25E9B5-9FA6-436c-8E19-B395D2A65FAF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+	<AssemblyName>OstrataTemplate.1.Plugin</AssemblyName>
+	<RootNamespace>OstrataTemplate._1</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.CrmSdk.CoreAssemblies" Version="9.0.2.*" PrivateAssets="All" />
+	  <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.*" PrivateAssets="All" />
+	  <PackageReference Include="OpenStrata.MSBuild.Plugin" Version="0.8.*">
+          <PrivateAssets>all</PrivateAssets>
+          <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+       </PackageReference>
+  </ItemGroup>
+
+  <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.props')" />
+
+	<PropertyGroup>
+		<PackageId>OstrataTemplate.1.Plugin</PackageId>
+		<PluginId>81f6f71d-7dc3-ee11-9079-001dd80314e5</PluginId>
+		<!-- <Version>$(FileVersion)</Version> -->
+		<Authors>$(Authors)</Authors>
+		<Company>$(Company)</Company>
+		<Description>Plugion Package for OstrataTemplate.1</Description>
+	</PropertyGroup>
+
+	<Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Plugin.targets')" />
+
+</Project>

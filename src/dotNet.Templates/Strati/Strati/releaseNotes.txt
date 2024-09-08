@@ -1,0 +1,7 @@
+$disclaimer$
+
+0.3.*-preview
+- These releases are in support of the OpenStrata Initiative's preview phase.  In this phase, the primary OpenStrata project types are functionally operational, but have not been "field-tested".
+
+0.2.*:
+- These releases are in support of the OpenStrata Initiative's proof-of-concept phase.

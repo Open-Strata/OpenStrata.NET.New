@@ -1,0 +1,18 @@
+﻿<Project Sdk="OpenStrata.Build.NoTargets">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Openstrata.MSBuild.ConfigData" Version="0.8.*">
+      <PrivateAssets>all</PrivateAssets>
+      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.csproj')" Include="..\Solution\OstrataTemplate.1.Solution.csproj" />
+  </ItemGroup>
+
+</Project>

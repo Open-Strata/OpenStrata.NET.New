@@ -1,0 +1,36 @@
+﻿<Project Sdk="OpenStrata.Build.NoTargets">
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+
+		<!--<RemoveActiveDependencies>true</RemoveActiveDependencies>	-->		
+	
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenStrata.MSBuild.Solution" Version="0.8.*">
+      <PrivateAssets>all</PrivateAssets>
+      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+    </PackageReference>
+
+	  <!--Modify the publisher reference as appropriate -->
+
+	  <!--<PackageReference Include="" Version="1.*">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>-->
+  
+  </ItemGroup>
+
+	<ItemGroup>
+		<PcfReference Include="..\PCF\OstrataTemplate.1.PCF.csproj" Condition="Exists('..\PCF\OstrataTemplate.1.PCF.csproj')" />
+		<PluginReference Include="..\Plugin\OstrataTemplate.1.Plugin.csproj" Condition="Exists('..\Plugin\OstrataTemplate.1.Plugin.csproj')"/>
+	</ItemGroup>
+
+	<ItemGroup Label="SolutionXmlDependencyCleanup">
+		<!--<AttributeDependenciesToRemove Include="[AttributeID]" />-->
+		<!--<SolutionDependenciesToRemove Include="[SolutionID]" />-->
+		<!--<SolutionDependenciesToRemove Include="[SolutionID]" />-->
+	</ItemGroup>
+
+</Project>

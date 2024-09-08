@@ -1,0 +1,1 @@
+OpenStrata.NET.Templates is a .Net Core Template package containing templates for the various OpenStrata project types and an OpenStrata Solution template containing each of the OpenStrata project types with project references and dependencies pre set.

@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Solution", "Solution\OstrataTemplate.1.Solution.csproj", "{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Package", "Package\OstrataTemplate.1.Package.csproj", "{9F9B27DE-E80A-45D2-8409-68DBA02DF81E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.ConfigData", "ConfigData\OstrataTemplate.1.ConfigData.csproj", "{636A203C-3C3C-4118-B510-95885C82F18B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Deployment", "Deployment\OstrataTemplate.1.Deployment.csproj", "{EF71EDF5-5739-493A-B2A2-A21E91543F8F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Strati", "Strati\OstrataTemplate.1.Strati.csproj", "{D5888FF2-8A96-4BF0-B507-A9F17F6AD8AC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F9B27DE-E80A-45D2-8409-68DBA02DF81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F9B27DE-E80A-45D2-8409-68DBA02DF81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F9B27DE-E80A-45D2-8409-68DBA02DF81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F9B27DE-E80A-45D2-8409-68DBA02DF81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{636A203C-3C3C-4118-B510-95885C82F18B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{636A203C-3C3C-4118-B510-95885C82F18B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{636A203C-3C3C-4118-B510-95885C82F18B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{636A203C-3C3C-4118-B510-95885C82F18B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF71EDF5-5739-493A-B2A2-A21E91543F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF71EDF5-5739-493A-B2A2-A21E91543F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF71EDF5-5739-493A-B2A2-A21E91543F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF71EDF5-5739-493A-B2A2-A21E91543F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5888FF2-8A96-4BF0-B507-A9F17F6AD8AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5888FF2-8A96-4BF0-B507-A9F17F6AD8AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5888FF2-8A96-4BF0-B507-A9F17F6AD8AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5888FF2-8A96-4BF0-B507-A9F17F6AD8AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {172AC666-EF8A-40B5-B088-5CA6F03FF753}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,16 @@
+﻿<Project Sdk="OpenStrata.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+	  <AssemblyName>OstrataTemplate.1.Deployment</AssemblyName>
+	  <RootNamespace>OstrataTemplate._1.Deployment</RootNamespace>	    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenStrata.MSBuild.Deployment" Version="0.8.*">
+		<PrivateAssets>all</PrivateAssets>
+		<!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

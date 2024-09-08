@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "OpenStrata",
+  "classifications": [ "Common", "OpenStrata", "Dataverse", "Power Platform" ],
+  "identity": "OpenStrata.NET.Plugin",
+  "name": "OpenStrata Plugin Template",
+  "shortName": "os-plugin",
+  "sourceName": "OstrataTemplate.1",
+  "primaryOutputs": [
+    {
+      "path": "Plugin\\OstrataTemplate.1.Plugin.csproj"
+    }
+  ],
+  "guids": [
+    "81f6f71d-7dc3-ee11-9079-001dd80314e5"
+  ],
+  "postActions": [
+    {
+      "description": "Adding to solution.",
+      "manualInstructions": [
+        { "text": "Adding to solution" }
+      ],
+      "actionId": "D396686C-DE0E-4DE6-906D-291CD29FC5DE",
+      "continueOnError": true,
+      "args": {
+        "primaryOutputIndexes": "0"
+      }
+    },
+    {
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        { "text": "Run 'dotnet restore'" }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true,
+      "args": {
+        "files": [ "Plugin\\OstrataTemplate.1.Plugin.csproj" ]
+      }
+    }
+  ]
+}

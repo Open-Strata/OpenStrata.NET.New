@@ -1,0 +1,70 @@
+<!--
+***********************************************************************************************
+alm.user.props
+
+User.props.file for the current user to set build properties
+for user specific environments.
+
+***********************************************************************************************
+-->
+<Project  xmlns='http://schemas.microsoft.com/developer/msbuild/2003' >
+
+	<!-- *********************************
+		
+		If you are assigned a dedicated dev environment, specify the environment url
+		using the PacEnvUrl property.
+		
+		If the solution has a dedicated PacOrgName that is not already specified, use PacOrgName.
+		
+		PacOrgName and PacEnvUrl are mutally exclusive.
+
+		<PacOrgName>$(PacOrgName)</PacOrgName>		
+		
+		<PacEnvUrl>$(PacEnvUrl)</PacEnvUrl>
+		
+		*************************************-->
+
+	<PropertyGroup Label="DevDefaultEnvironmentProperties" >
+
+		<PacAuthProfile></PacAuthProfile>
+		<PacEnvUrl></PacEnvUrl>
+		<PacUseApplicationAuth>true</PacUseApplicationAuth>
+		<PacAuthApplicationId></PacAuthApplicationId>
+		<SiteApplicationId></SiteApplicationId>
+		
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="'$(ToQa)'=='true'" >
+
+		<SolutionPackageType>Unmanaged</SolutionPackageType>
+		<PacAuthProfile></PacAuthProfile>
+		<PacEnvUrl></PacEnvUrl>
+		<PacUseApplicationAuth>true</PacUseApplicationAuth>	
+		<PacAuthApplicationId></PacAuthApplicationId>			
+		<SiteApplicationId></SiteApplicationId>		
+	
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(ToUat)'=='true'" >
+		
+		<SolutionPackageType>Managed</SolutionPackageType>
+		<PacAuthProfile></PacAuthProfile>
+   		<PacEnvUrl></PacEnvUrl>
+		<PacUseApplicationAuth>true</PacUseApplicationAuth>
+		<PacAuthApplicationId></PacAuthApplicationId>				
+		<SiteApplicationId></SiteApplicationId>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(ToProd)'=='true'" >
+
+		<SolutionPackageType>Managed</SolutionPackageType>
+		<PacAuthProfile></PacAuthProfile>
+		<PacUseApplicationAuth>true</PacUseApplicationAuth>
+		<PacAuthApplicationId></PacAuthApplicationId>				
+		<PacEnvUrl></PacEnvUrl>
+		<SiteApplicationId></SiteApplicationId>		
+
+	</PropertyGroup>
+
+</Project>
