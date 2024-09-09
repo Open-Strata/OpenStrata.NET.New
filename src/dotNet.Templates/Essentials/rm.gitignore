@@ -374,6 +374,22 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# PCF Project ignoring files
+# dependencies
+/node_modules
+
+# generated directory
+**/generated
+
+# output directory
+/out
+
+# msbuild output directories
+/bin
+/obj
+
+# MSBuild Binary and Structured Log
+*.binlog
 
 # Openstrata Standardized User Mode Files
 

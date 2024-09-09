@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenStrata.MSBuild.Package" Version="ostrataVersion">
+    <PackageReference Include="OpenStrata.MSBuild.Package" Version="ostrataVersion.1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>

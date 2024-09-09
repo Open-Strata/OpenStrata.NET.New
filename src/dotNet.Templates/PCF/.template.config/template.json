@@ -8,10 +8,20 @@
   "sourceName": "OstrataTemplate.1",
   "primaryOutputs": [
     {
-      "path": "PCF\\OstrataTemplate.1.PCF.csproj"
+      "path": "PCF/PCFProjectSubFolder/OstrataTemplate.1.pcfproj"
     }
   ],
-  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
+  "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" },
+              "name-space":{"type": "parameter", "datatype":"text", "isRequired":true, "replaces": "pcfNameSpace.1" },
+              "template":{"type": "parameter", "datatype":"text", "defaultValue": "field", "choices": ["field", "dataset"], "replaces": "pcfTemplate.1" },
+              "framework":{"type": "parameter", "datatype":"text", "defaultValue": "none", "choices": ["none", "react"], "replaces": "pcfFramework.1" },
+              "PCFProjectSubRename": {"type":"generated", "generator": "join", "fileRename": "PCFProjectSubFolder", 
+              "parameters": {"symbols": [{"type": "ref", "value": "name-space"},
+                                        {"type": "ref","value": "name"}],
+                              "separator": ".",
+                              "removeEmptyValues": true}}              
+      },
+  "guids": ["1d2cf6ad-b623-4863-9ef4-916cc1ff105e"],
   "postActions": [
     {
       "description": "Adding to solution.",
@@ -32,7 +42,7 @@
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
       "continueOnError": true,
       "args": {
-        "files": [ "PCF\\OstrataTemplate.1.PCF.csproj" ]
+        "primaryOutputIndexes": "0"
       }
     }
   ]

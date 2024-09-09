@@ -11,7 +11,7 @@
       "path": "DocTemplates\\OstrataTemplate.1.DocumentTemplates.csproj"
     }
   ],
-  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
+  "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" }},
   "postActions": [
     {
       "description": "Adding to solution.",

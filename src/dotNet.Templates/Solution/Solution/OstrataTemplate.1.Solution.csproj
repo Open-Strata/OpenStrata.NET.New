@@ -3,6 +3,11 @@
 	<PropertyGroup>
 		<TargetFramework>net472</TargetFramework>
 
+		<DataverseSolutionName>OstrataTemplate.1</DataverseSolutionName>
+		<DataversePublisherUniqueName>publishername.1</DataversePublisherUniqueName>
+		<DataversePublisherPrefix>publisherPrefix.1</DataversePublisherPrefix>
+
+
 		<!--<RemoveActiveDependencies>true</RemoveActiveDependencies>	-->		
 
 		<!-- <IncludeAutoNumbering >true</IncludeAutoNumbering> -->
@@ -22,7 +27,7 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenStrata.MSBuild.Solution" Version="ostrataVersion">
+    <PackageReference Include="OpenStrata.MSBuild.Solution" Version="ostrataVersion.1">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
 
@@ -36,8 +41,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PcfReference Include="..\*\*.pcfproj" Exclude="@(PcfProjExcludes)" />
-		<PcfReference Include="..\PCF\OstrataTemplate.1.PCF.csproj" Condition="Exists('..\PCF\OstrataTemplate.1.PCF.csproj')" />
+		<PackageReference Include="..\PCF\*\*.pcfproj" Exclude="@(PcfProjExcludes)" />
 		<PluginReference Include="..\Plugin\OstrataTemplate.1.Plugin.csproj" Condition="Exists('..\Plugin\OstrataTemplate.1.Plugin.csproj')"/>
 	</ItemGroup>
 

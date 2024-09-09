@@ -36,14 +36,14 @@
   </PropertyGroup>
 
 	<!--<ItemGroup>
-		<PackageReference Include="OpenStrata.MSBuild" Version="ostrataVersion">
+		<PackageReference Include="OpenStrata.MSBuild" Version="ostrataVersion.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>-->
 
 	<ItemGroup>
-		<PackageReference Include="OpenStrata.MSBuild.Nuget" Version="ostrataVersion">
+		<PackageReference Include="OpenStrata.MSBuild.Nuget" Version="ostrataVersion.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>

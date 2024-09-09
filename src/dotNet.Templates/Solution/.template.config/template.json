@@ -11,7 +11,9 @@
       "path": "Solution\\OstrataTemplate.1.Solution.csproj"
     }
   ],
-  "symbols": {"ostrataversion":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion" }},
+  "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" },
+  "publisher-name":{"type": "parameter", "datatype":"text", "defaultValue": "", "isRequired":true, "replaces": "publishername.1"},
+  "publisher-prefix": {"type": "parameter", "datatype":"text", "defaultValue": "", "isRequired":true, "replaces": "publisherPrefix.1"}},
   "postActions": [
     {
       "description": "Adding to solution.",
