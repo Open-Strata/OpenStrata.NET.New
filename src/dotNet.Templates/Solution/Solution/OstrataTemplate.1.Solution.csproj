@@ -41,7 +41,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="..\PCF\*\*.pcfproj" Exclude="@(PcfProjExcludes)" />
+		<ProjectReference Include="..\PCF\**\*.pcfproj" Exclude="@(PcfProjExcludes)" />
 		<PluginReference Include="..\Plugin\OstrataTemplate.1.Plugin.csproj" Condition="Exists('..\Plugin\OstrataTemplate.1.Plugin.csproj')"/>
 	</ItemGroup>
 

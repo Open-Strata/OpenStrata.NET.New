@@ -21,6 +21,17 @@
                               "separator": ".",
                               "removeEmptyValues": true}}              
       },
+   "sources": [{
+    "modifiers": [
+      {"condition": "template != field", "exclude": ["**/*.field.*"]},
+      {"condition": "template != dataset", "exclude": ["**/*.dataset.*"]},
+      {"condition": "template == dataset && framework == none", "rename": {"ManifestTypes.d.none.dataset.ts": "ManifestTypes.d.ts",
+                                                      "index.none.dataset.ts": "index.ts",
+                                                      "ControlManifest.Input.none.dataset.xml": "ControlManifest.Input.xml"}},
+      {"condition": "template == field && framework == none", "rename": {"ManifestTypes.d.none.field.ts": "ManifestTypes.d.ts",
+                                                      "index.none.field.ts": "index.ts",
+                                                      "ControlManifest.Input.none.field.xml": "ControlManifest.Input.xml"}}
+    ]}],
   "guids": ["1d2cf6ad-b623-4863-9ef4-916cc1ff105e"],
   "postActions": [
     {
