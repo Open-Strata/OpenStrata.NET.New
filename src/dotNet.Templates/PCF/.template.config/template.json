@@ -25,12 +25,25 @@
     "modifiers": [
       {"condition": "template != field", "exclude": ["**/*.field.*"]},
       {"condition": "template != dataset", "exclude": ["**/*.dataset.*"]},
+      {"condition": "framework != none", "exclude": ["**/*.none.*"]},
+      {"condition": "framework != react", "exclude": ["**/*.react.*"]},
       {"condition": "template == dataset && framework == none", "rename": {"ManifestTypes.d.none.dataset.ts": "ManifestTypes.d.ts",
                                                       "index.none.dataset.ts": "index.ts",
                                                       "ControlManifest.Input.none.dataset.xml": "ControlManifest.Input.xml"}},
       {"condition": "template == field && framework == none", "rename": {"ManifestTypes.d.none.field.ts": "ManifestTypes.d.ts",
                                                       "index.none.field.ts": "index.ts",
-                                                      "ControlManifest.Input.none.field.xml": "ControlManifest.Input.xml"}}
+                                                      "ControlManifest.Input.none.field.xml": "ControlManifest.Input.xml"}},
+      {"condition": "template == field && framework == react", "rename": {"ManifestTypes.d.react.ts": "ManifestTypes.d.ts",
+                                                      "index.react.field.ts": "index.ts",
+                                                      "ControlManifest.Input.react.field.xml": "ControlManifest.Input.xml"}},
+      {"condition": "template == dataset && framework == react", "rename": {"ManifestTypes.d.react.ts": "ManifestTypes.d.ts",
+                                                      "index.react.dataset.ts": "index.ts",
+                                                      "ControlManifest.Input.react.dataset.xml": "ControlManifest.Input.xml"}},
+      {"condition": "framework == none", "rename": {".eslintrc.none.json": ".eslintrc.json",
+                                                      "package.none.json": "package.json"}},
+      {"condition": "framework == react", "rename": {".eslintrc.react.json": ".eslintrc.json",
+                                                      "package.react.json": "package.json",
+                                                      "HelloWorld.react.tsx": "HelloWorld.tsx"}}                                                        
     ]}],
   "guids": ["1d2cf6ad-b623-4863-9ef4-916cc1ff105e"],
   "postActions": [
