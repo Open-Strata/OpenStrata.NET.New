@@ -6,6 +6,7 @@
 
 # OpenStrata files
 .[Oo][Ss]trata/locks
+.[Oo][Ss]trata/tmp
 *.user.props
 *.user.targets
 
