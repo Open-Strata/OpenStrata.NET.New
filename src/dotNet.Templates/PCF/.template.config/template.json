@@ -6,15 +6,21 @@
   "name": "OpenStrata PCF Template",
   "shortName": "os-pcf",
   "sourceName": "OstrataTemplate.1",
+  "description": "Initializes a PCF subdirectory with a new Power Apps component framework project extended with OpenStrata",
   "primaryOutputs": [
     {
       "path": "PCF/PCFProjectSubFolder/OstrataTemplate.1.pcfproj"
     }
   ],
   "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" },
-              "name-space":{"type": "parameter", "datatype":"text", "isRequired":true, "replaces": "pcfNameSpace.1" },
-              "template":{"type": "parameter", "datatype":"text", "defaultValue": "field", "choices": ["field", "dataset"], "replaces": "pcfTemplate.1" },
-              "framework":{"type": "parameter", "datatype":"text", "defaultValue": "none", "choices": ["none", "react"], "replaces": "pcfFramework.1" },
+              "namespace":{"type": "parameter", "datatype":"text", "isRequired":true,
+                             "description":"The namespace for the component", "replaces": "pcfNameSpace.1" },
+              "template":{"type": "parameter", "datatype":"choice", "defaultValue": "field",
+                          "description": "Choose a template for the component.",  
+                          "choices": [{"choice": "field"},{"choice": "dataset"}], "replaces": "pcfTemplate.1" },
+              "framework":{"type": "parameter", "datatype":"choice", "defaultValue": "none", 
+                          "description": "The rendering framework for control. The default value is 'none', which means HTML.",
+                          "choices": [{"choice": "none"},{"choice": "react"}], "replaces": "pcfFramework.1" },
               "PCFProjectSubRename": {"type":"generated", "generator": "join", "fileRename": "PCFProjectSubFolder", 
               "parameters": {"symbols": [{"type": "ref", "value": "name-space"},
                                         {"type": "ref","value": "name"}],
