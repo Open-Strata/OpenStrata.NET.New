@@ -21,12 +21,19 @@
               "framework":{"type": "parameter", "datatype":"choice", "defaultValue": "none", 
                           "description": "The rendering framework for control. The default value is 'none', which means HTML.",
                           "choices": [{"choice": "none"},{"choice": "react"}], "replaces": "pcfFramework.1" },
+              "run-npm-install" : {"type":"parameter", "datatype":"bool", "defaultValue": "false",
+                                       "description": "Auto run 'npm install' after the control is created. The default value is 'false'."},
               "PCFProjectSubRename": {"type":"generated", "generator": "join", "fileRename": "PCFProjectSubFolder", 
-              "parameters": {"symbols": [{"type": "ref", "value": "name-space"},
+              "parameters": {"symbols": [{"type": "ref", "value": "namespace"},
                                         {"type": "ref","value": "name"}],
                               "separator": ".",
-                              "removeEmptyValues": true}}              
-      },
+                              "removeEmptyValues": true}},
+               "npm-install-args" : {"type": "generated", "generator": "join",
+                "parameters": {"symbols": [{"type": "const", "value" : "install PCF/"},
+                                           {"type": "ref", "value": "PCFProjectSubRename"},
+                                           {"type": "const","value": "/"}]},
+                              "separator": ".",
+                              "removeEmptyValues": true}},             
    "sources": [{
     "modifiers": [
       {"condition": "template != field", "exclude": ["**/*.field.*"]},
@@ -53,6 +60,17 @@
     ]}],
   "guids": ["1d2cf6ad-b623-4863-9ef4-916cc1ff105e"],
   "postActions": [
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",      
+      "description": "Running NPM Install",
+      "manualInstructions": [{"text" : "Run .\\PCF\\PCFProjectSubFolder\\install-npm.ps1"}],
+      "args":{"executable": "powershell.exe",
+              "args": "-File .\\PCF\\PCFProjectSubFolder\\install-npm.ps1"},
+      "applyFileRenamesToArgs": ["args"],
+      "applyFileRenamesToManualInstructions": true,
+      "continueOnError": true,
+      "condition": "run-npm-install == true"
+    },
     {
       "description": "Adding to solution.",
       "manualInstructions": [
