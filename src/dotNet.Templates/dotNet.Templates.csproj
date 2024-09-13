@@ -27,7 +27,7 @@
 	  <IncludeBuildOutput>false</IncludeBuildOutput>
 	  <ContentTargetFolders>content</ContentTargetFolders>
 
-	  <RemoveItems>**\bin\**;**\.vs\**;**\obj\**;**\*.sln;**\*.snk;**\*.user;Solution\src\**;**\Solution\src\**;**\summary.txt;**\releaseNotes.txt;**\description.txt;**\PkgFolder\**;**\Package\ImportPackage.cs;**\readme.md;**\ConfigData\data\**</RemoveItems>
+	  <RemoveItems>**\bin\**;**\.vs\**;**\obj\**;**\*.sln;**\*.snk;**\*.user;Solution\src\**;**\Solution\src\**;**\summary.txt;**\releaseNotes.txt;**\description.txt;**\PkgFolder\**;**\Package\ImportPackage.cs;**\readme.md;**\ConfigData\data\**;**\Solution\metadata\**</RemoveItems>
 
 	  <SignAssembly>false</SignAssembly>
 	  <UseGitInfoForVersions>true</UseGitInfoForVersions>

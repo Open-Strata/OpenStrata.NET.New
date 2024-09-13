@@ -1,9 +1,19 @@
 ﻿<Project Sdk="OpenStrata.Build.NoTargets">
 
 	<PropertyGroup>
+		<PowerAppsTargetsPath>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\PowerApps</PowerAppsTargetsPath>
+	</PropertyGroup>
+
+	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"  Condition=" '$(MicrosoftCommonPropsHasBeenImported)' != 'true' "  />
+	<Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props')" />
+
+
+	<PropertyGroup>
+
+
 		<TargetFramework>net472</TargetFramework>
 
-		<DataverseSolutionName>OstrataTemplate.1</DataverseSolutionName>
+		<DataverseSolutionName>OstrataTemplate._1</DataverseSolutionName>
 		<DataversePublisherUniqueName>publishername.1</DataversePublisherUniqueName>
 		<DataversePublisherPrefix>publisherPrefix.1</DataversePublisherPrefix>
 
@@ -52,5 +62,11 @@
 		<!--<DependentTypeDependenciesToRemove Include="[ComponentType]" />-->
 		<!--<SolutionDependencyMinVersion Include="[SolutionID]" MinVersion="[MinVersion]"  />-->						   
 	</ItemGroup>
+
+
+
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition=" '$(CommonTargetsPath)' == '' "  />
+    <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets')" />
+
 
 </Project>
