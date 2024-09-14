@@ -316,9 +316,8 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 
 		<Warning
             Text=" There are uncommitted changes.  Please commit changes and rebuild prior to publishing the nuget package."
-            Condition="'$(GitIsDirty)' != '0'" />
+            Condition="'$(GitIsDirty)' != '0' And '$(Configuration)' != 'Debug'" />
 
 	</Target>	
-	
 	
 </Project>

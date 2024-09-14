@@ -22,7 +22,11 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 		<LocalPackageFeed>C:\Packages</LocalPackageFeed>
 
 		<PushAfterBuild Condition="'$(PushAfterBuild)'==''">false</PushAfterBuild>
-		<PushAfterBuild Condition="'$(Configuration)'=='Release'">true</PushAfterBuild>		
+		<PushAfterBuild Condition="'$(Configuration)'=='Release'">true</PushAfterBuild>	
+
+
+		<NoWarn>$(NoWarn);NU5110;NU5100;NU1702;NU5111</NoWarn>
+		<NugetNoWarn>NU5111,NU5110</NugetNoWarn>
 
 	</PropertyGroup>
 

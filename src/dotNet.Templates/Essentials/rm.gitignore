@@ -3,13 +3,19 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-
-# OpenStrata files
+# OpenStrata Ignored files
 .[Oo][Ss]trata/locks
 .[Oo][Ss]trata/tmp
+.[Oo][Ss]trata/gitignore
 *.user.props
 *.user.targets
 
+# Openstrata Standardized User Mode Files
+
+/ostrata.package.manifest
+/ostrata.stratify.manifest
+/package.deploy.log
+/Schemas/
 
 # OpenStrata deprecated Files
 [Aa][Ll][Mm]/
@@ -392,11 +398,3 @@ FodyWeavers.xsd
 # MSBuild Binary and Structured Log
 *.binlog
 
-# Openstrata Standardized User Mode Files
-
-/ostrata.package.manifest
-/ostrata.stratify.manifest
-/init.ps1
-/shortcuts.ps1
-/package.deploy.log
-/Schemas/
