@@ -1,5 +1,11 @@
 <Project  xmlns='http://schemas.microsoft.com/developer/msbuild/2003' >
 
+
+	<PropertyGroup>
+		<NoWarn>$(NoWarn);NU1603;MSB3245</NoWarn>
+        <NugetNoWarn>NU5100</NugetNoWarn>
+	</PropertyGroup>
+
 	<Import Project="..\..\version.props" Condition="Exists('..\..\version.props')"     />
 	
 </Project>

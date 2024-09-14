@@ -11,7 +11,11 @@
       "path": "PowerPages\\OstrataTemplate.1.PowerPages.csproj"
     }
   ],
-  "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" }},
+  "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" },
+              "website-id":{"type": "parameter", "datatype":"text", "isRequired":true,
+                                "description":"WebSiteId is unique to portal config and common to all environments", "replaces": "WebSiteId.1"},
+              "website-folder": {"type": "parameter", "datatype":"text", "isRequired":true,
+                                  "description": "Folder to place the webiste content." ,  "replaces": "WebSiteFolder.1"}},
   "postActions": [
     {
       "description": "Adding to solution.",

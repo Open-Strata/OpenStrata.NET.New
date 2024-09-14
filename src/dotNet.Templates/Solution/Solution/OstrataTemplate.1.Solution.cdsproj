@@ -1,10 +1,11 @@
-﻿<Project Sdk="OpenStrata.Build.NoTargets">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="OpenStrata.Build.NoTargets" xmlns='http://schemas.microsoft.com/developer/msbuild/2003'>
 
 	<PropertyGroup>
 		<PowerAppsTargetsPath>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\PowerApps</PowerAppsTargetsPath>
 	</PropertyGroup>
 
-	<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"  Condition=" '$(MicrosoftCommonPropsHasBeenImported)' != 'true' "  />
+	<!-- <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"  /> -->
 	<Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props')" />
 
 
@@ -12,6 +13,8 @@
 
 
 		<TargetFramework>net472</TargetFramework>
+
+		<ProjectGuid>62B8C8AF-2900-4FF8-9F43-3C688FECD2F6</ProjectGuid>
 
 		<DataverseSolutionName>OstrataTemplate._1</DataverseSolutionName>
 		<DataversePublisherUniqueName>publishername.1</DataversePublisherUniqueName>
@@ -66,7 +69,7 @@
 
 
 
-    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition=" '$(CommonTargetsPath)' == '' "  />
+    <!-- <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" /> -->
     <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets')" />
 
 

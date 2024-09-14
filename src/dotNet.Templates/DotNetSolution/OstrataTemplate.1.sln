@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Solution", "Solution\OstrataTemplate.1.Solution.csproj", "{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Solution", "Solution\OstrataTemplate.1.Solution.cdsproj", "{62B8C8AF-2900-4FF8-9F43-3C688FECD2F6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OstrataTemplate.1.Package", "Package\OstrataTemplate.1.Package.csproj", "{9F9B27DE-E80A-45D2-8409-68DBA02DF81E}"
 EndProject

@@ -15,7 +15,9 @@
               "publisher-name":{"type": "parameter", "datatype":"text", "defaultValue": "", "isRequired":true,
                                 "description":"Name of the Dataverse solution publisher", "replaces": "publishername.1"},
               "publisher-prefix": {"type": "parameter", "datatype":"text", "defaultValue": "", "isRequired":true,
-                                  "description": "Customization prefix value for the Dataverse solution publisher" ,  "replaces": "publisherPrefix.1"}},
+                                  "description": "Customization prefix value for the Dataverse solution publisher" ,  "replaces": "publisherPrefix.1"},
+              "noext": {"type": "parameter", "datatype":"bool", "defaultValue": "false",
+                                  "description": "Indicates whether to prompt to add additional extensions" }},
   "guids": [
     "62B8C8AF-2900-4FF8-9F43-3C688FECD2F6",
     "9F9B27DE-E80A-45D2-8409-68DBA02DF81E",
@@ -31,6 +33,36 @@
     "172AC666-EF8A-40B5-B088-5CA6F03FF753"
   ],
   "postActions": [
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "new install OpenStrata.Devops.VSCode.New",
+        "redirectStandardOutput": false,
+        "redirectStandardError": false
+      },
+      "manualInstructions": [{
+         "text": "Run 'dotnet new install OpenStrata.Devops.VSCode.New'"
+      }],
+      "continueOnError": true,
+      "description ": "Installing templates for OpenStrata VSCode Extensions",
+      "condition": "noext == false"
+    },    
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "new os-vscode",
+        "redirectStandardOutput": false,
+        "redirectStandardError": false
+      },
+      "manualInstructions": [{
+         "text": "Run 'dotnet new os-vscode'"
+      }],
+      "continueOnError": true,
+      "description ": "Adding VSCode Extension Files",
+      "condition": "noext == false"
+    }, 
     {
       "description": "Run init.ps1",
       "manualInstructions": [

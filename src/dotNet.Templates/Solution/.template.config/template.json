@@ -16,6 +16,9 @@
                     "description":"Name of the Dataverse solution publisher", "replaces": "publishername.1"},
   "publisher-prefix": {"type": "parameter", "datatype":"text", "defaultValue": "", "isRequired":true,
                        "description": "Customization prefix value for the Dataverse solution publisher" ,  "replaces": "publisherPrefix.1"}},
+  "guids": [
+        "62B8C8AF-2900-4FF8-9F43-3C688FECD2F6"
+      ],  
   "postActions": [
     {
       "description": "Adding to solution.",
