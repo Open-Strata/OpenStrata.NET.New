@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "OpenStrata",
+  "classifications": [ "Common", "OpenStrata", "Dataverse", "Power Platform" ],
+  "identity": "OpenStrata.NET.StrataVersionsProps",
+  "name": "OpenStrata Strata-Versions File",
+  "shortName": "os-strataversions",
+  "sourceName": "OstrataTemplate.1",
+  "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" }}
+}

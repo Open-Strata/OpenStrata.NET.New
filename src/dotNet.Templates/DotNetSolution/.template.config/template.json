@@ -62,17 +62,17 @@
       "continueOnError": true,
       "description ": "Adding VSCode Extension Files",
       "condition": "noext == false"
-    }, 
+    },
     {
-      "description": "Run init.ps1",
-      "manualInstructions": [
-        { "text": "Run .\\init.ps1 to ensure latest updates" }
-      ],
+      "condition": "noext == false",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [{
+        "text": "Run 'dotnet restore'"
+      }],
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
-      "continueOnError": true,
-      "args": {
-        "files": [ "OstrataTemplate.1.sln" ]
-      }
+      "continueOnError": true
     }
+
+
   ]
 }

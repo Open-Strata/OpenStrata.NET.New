@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<DotOstrataPath>$(MSBuildThisFileDirectory).openstrata\</DotOstrataPath>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <StrataVersionsProps>$([MSBuild]::GetPathOfFileAbove('strata-versions.props', '$(MSBuildProjectDirectory)'))</StrataVersionsProps>		
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,5 +17,7 @@
 		<PackageVersion Include="Openstrata.MSBuild.PowerPages" Version="ostrataVersion.1" />
 		<PackageVersion Include="Openstrata.MSBuild.PCF" Version="ostrataVersion.1" />																
 	</ItemGroup>
+
+	<Import Project="$(StrataVersionsProps)" Condition=" '$(StrataVersionsProps)' != '' " />
 
 </Project>

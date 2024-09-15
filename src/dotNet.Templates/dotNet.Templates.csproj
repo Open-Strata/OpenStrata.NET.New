@@ -80,6 +80,8 @@
 	  <Content Include="Deployment\**\*" PackagePath="\content\Deployment\" />
 	  <Content Include="Plugin\**\*" PackagePath="\content\Plugin\" />
       <Content Include="Essentials\**\*" Exclude="Essentials\rm.gitignore" PackagePath="\content\Essentials\" />
+      <Content Include="OpenStrataProps\**\*" PackagePath="\content\OpenStrataProps\" />
+      <Content Include="StrataVersionProps\**\*" PackagePath="\content\StrataVersionProps\" />	  
 
 	  <Content Include="DocumentTemplates\**\*" PackagePath="\content\DocumentTemplates\" />	
 	  
@@ -89,6 +91,7 @@
 
 	  <Content Include="DotNetSolution\**\*" PackagePath="\content\DotNetSolution\" />
 
+      <Content Include="OpenStrataProps\**\*" Exclude="OpenStrataProps\.template.config\*" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Essentials\**\*" Exclude="Essentials\.template.config\*;Essentials\rm.gitignore" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Solution\**\*" Exclude="Solution\.template.config\*" PackagePath="\content\DotNetSolution\" />
 	  <Content Include="Strati\**\*" Exclude="Strati\.template.config\*" PackagePath="\content\DotNetSolution\" />
