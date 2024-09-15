@@ -7,6 +7,9 @@
 .[Oo][Ss]trata/locks
 .[Oo][Ss]trata/tmp
 .[Oo][Ss]trata/gitignore
+.[Oo]pen[Ss]trata/locks
+.[Oo]pen[Ss]trata/tmp
+.[Oo]pen[Ss]trata/gitignore
 *.user.props
 *.user.targets
 
@@ -14,6 +17,8 @@
 
 /ostrata.package.manifest
 /ostrata.stratify.manifest
+/openstrata.package.manifest
+/openstrata.stratify.manifest
 /package.deploy.log
 /Schemas/
 

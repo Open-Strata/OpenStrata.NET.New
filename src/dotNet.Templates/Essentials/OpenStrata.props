@@ -1,0 +1,20 @@
+<Project  xmlns='http://schemas.microsoft.com/developer/msbuild/2003' >
+
+	<PropertyGroup>
+		<DotOstrataPath>$(MSBuildThisFileDirectory).openstrata\</DotOstrataPath>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageVersion Include="Openstrata.MSBuild" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.Solution" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.ConfigData" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.Package" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.Strati" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.Plugin" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.DocumentTemplate" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.PowerPages" Version="ostrataVersion.1" />
+		<PackageVersion Include="Openstrata.MSBuild.PCF" Version="ostrataVersion.1" />																
+	</ItemGroup>
+
+</Project>
