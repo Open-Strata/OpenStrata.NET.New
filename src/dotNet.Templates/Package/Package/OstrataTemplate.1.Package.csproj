@@ -5,7 +5,8 @@
 
 	  <AssemblyName>OstrataTemplate.1.Package</AssemblyName>
 	  <RootNamespace>OstrataTemplate._1.Package</RootNamespace>
-	  
+
+	  <ProjectGuid>9F9B27DE-E80A-45D2-8409-68DBA02DF81E</ProjectGuid>    	  
 	  
   </PropertyGroup>
 
@@ -36,7 +37,6 @@
 	  <ProjectReference Condition="Exists('..\ConfigData\OstrataTemplate.1.ConfigData.csproj')" Include="..\ConfigData\OstrataTemplate.1.ConfigData.csproj"  />
 	  <ProjectReference Condition="Exists('..\Deployment\OstrataTemplate.1.Deployment.csproj')" Include="..\Deployment\OstrataTemplate.1.Deployment.csproj" />
 	  <ProjectReference Condition="Exists('..\Publisher\OstrataTemplate.1.Publisher.csproj')" Include="..\Publisher\OstrataTemplate.1.Publisher.csproj" />
-	  <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.csproj')" Include="..\Solution\OstrataTemplate.1.Solution.csproj" />
 	  <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.cdsproj')" Include="..\Solution\OstrataTemplate.1.Solution.cdsproj" />	  
 	  <ProjectReference Condition="Exists('..\PowerPages\OstrataTemplate.1.PowerPages.csproj')" Include="..\PowerPages\OstrataTemplate.1.PowerPages.csproj" />
 	  <ProjectReference Condition="Exists('..\DocTemplates\OstrataTemplate.1.DocumentTemplates.csproj')" Include="..\DocTemplates\OstrataTemplate.1.DocumentTemplates.csproj" />

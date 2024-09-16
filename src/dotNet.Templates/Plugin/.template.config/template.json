@@ -12,7 +12,9 @@
     }
   ],
   "guids": [
-    "81f6f71d-7dc3-ee11-9079-001dd80314e5"
+    "81f6f71d-7dc3-ee11-9079-001dd80314e5",
+    "14d4a3d8-9a19-4f3d-b317-ebf34f0d3fdd"
+
   ],
   "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" }},
   "postActions": [

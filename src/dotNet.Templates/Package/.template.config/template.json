@@ -12,6 +12,9 @@
     }
   ],
   "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" }},
+  "guids": [
+    "9F9B27DE-E80A-45D2-8409-68DBA02DF81E"
+  ],  
   "postActions": [
     {
       "description": "Adding to solution.",

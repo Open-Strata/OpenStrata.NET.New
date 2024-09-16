@@ -3,7 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
 	  <AssemblyName>OstrataTemplate.1.Deployment</AssemblyName>
-	  <RootNamespace>OstrataTemplate._1.Deployment</RootNamespace>	    
+	  <RootNamespace>OstrataTemplate._1.Deployment</RootNamespace>	
+
+
+		<ProjectGuid>EF71EDF5-5739-493A-B2A2-A21E91543F8F</ProjectGuid>    
+
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
+    <NoWarn>MSB3245</NoWarn>
+
+		<ProjectGuid>57e84a66-260c-4993-bbdc-7b4561c29378</ProjectGuid>        
 
     <!--WebSiteId is unique to portal config and common to all environments-->
     <WebSiteId>WebSiteId.1</WebSiteId>

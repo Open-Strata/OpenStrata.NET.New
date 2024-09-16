@@ -26,6 +26,7 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <!--Remove TargetFramework when this is available in 16.1-->
     <TargetFramework>net462</TargetFramework>
+    <NoWarn>MSB3245</NoWarn>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
 
   </PropertyGroup>  

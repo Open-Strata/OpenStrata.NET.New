@@ -13,6 +13,7 @@
 
 
 		<TargetFramework>net472</TargetFramework>
+		<NoWarn>MSB3245</NoWarn>
 
 		<ProjectGuid>62B8C8AF-2900-4FF8-9F43-3C688FECD2F6</ProjectGuid>
 

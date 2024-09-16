@@ -8,7 +8,7 @@
   "sourceName": "OstrataTemplate.1",
   "primaryOutputs": [
     {
-      "path": "Solution\\OstrataTemplate.1.Solution.csproj"
+      "path": "Solution\\OstrataTemplate.1.Solution.cdsproj"
     }
   ],
   "symbols": {"ostrata-version":{"type": "parameter", "datatype":"text", "defaultValue": "1.*", "replaces": "ostrataVersion.1" },
@@ -39,7 +39,7 @@
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
       "continueOnError": true,
       "args": {
-        "files": [ "Solution\\OstrataTemplate.1.Solution.csproj" ]
+        "files": [ "Solution\\OstrataTemplate.1.Solution.cdsproj" ]
       }
     }
   ]

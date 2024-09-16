@@ -2,6 +2,9 @@
 
   <PropertyGroup>
 	 <TargetFramework>net472</TargetFramework>
+   <NugetNoWarn>NU5100</NugetNoWarn>
+
+   <ProjectGuid>D5888FF2-8A96-4BF0-B507-A9F17F6AD8AC</ProjectGuid>    
 
 	  
 	  <!--Uncomment applicable properties below if you want to override the default behavior specified by the package deployer.-->
@@ -24,7 +27,6 @@
     <ProjectReference Condition="Exists('..\ConfigData\OstrataTemplate.1.ConfigData.csproj')" Include="..\ConfigData\OstrataTemplate.1.ConfigData.csproj"  />
     <ProjectReference Condition="Exists('..\Deployment\OstrataTemplate.1.Deployment.csproj')" Include="..\Deployment\OstrataTemplate.1.Deployment.csproj" />
     <ProjectReference Condition="Exists('..\Publisher\OstrataTemplate.1.Publisher.csproj')" Include="..\Publisher\OstrataTemplate.1.Publisher.csproj" />
-    <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.csproj')" Include="..\Solution\OstrataTemplate.1.Solution.csproj" />
     <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.cdsproj')" Include="..\Solution\OstrataTemplate.1.Solution.cdsproj" />    
 	  <ProjectReference Condition="Exists('..\PowerPages\OstrataTemplate.1.PowerPages.csproj')" Include="..\PowerPages\OstrataTemplate.1.PowerPages.csproj" />
     <ProjectReference Condition="Exists('..\DocTemplates\OstrataTemplate.1.DocumentTemplates.csproj')" Include="..\DocTemplates\OstrataTemplate.1.DocumentTemplates.csproj" />

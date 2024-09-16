@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
+    <NoWarn>MSB3245</NoWarn>    
+
+		<ProjectGuid>636A203C-3C3C-4118-B510-95885C82F18B</ProjectGuid>
+
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.csproj')" Include="..\Solution\OstrataTemplate.1.Solution.csproj" />
+	  <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.cdsproj')" Include="..\Solution\OstrataTemplate.1.Solution.cdsproj" />    
   </ItemGroup>
 
 </Project>

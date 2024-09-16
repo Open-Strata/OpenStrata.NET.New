@@ -6,6 +6,9 @@
     <ProjectTypeGuids>{4C25E9B5-9FA6-436c-8E19-B395D2A65FAF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
 	<AssemblyName>OstrataTemplate.1.Plugin</AssemblyName>
 	<RootNamespace>OstrataTemplate._1</RootNamespace>
+
+	<ProjectGuid>14d4a3d8-9a19-4f3d-b317-ebf34f0d3fdd</ProjectGuid>    
+
   </PropertyGroup>
 
   <ItemGroup>

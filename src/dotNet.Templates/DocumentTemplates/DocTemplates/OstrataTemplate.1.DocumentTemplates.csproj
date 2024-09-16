@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
+    <NoWarn>MSB3245</NoWarn>    
+
+		<ProjectGuid>1283968e-b332-4d7b-9cd9-2ab634f592e6</ProjectGuid>    
+
   </PropertyGroup>
 
   <ItemGroup>
