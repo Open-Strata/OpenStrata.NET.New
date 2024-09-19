@@ -22,7 +22,8 @@
 		<DataversePublisherPrefix>publisherPrefix.1</DataversePublisherPrefix>
 
 
-		<!--<RemoveActiveDependencies>true</RemoveActiveDependencies>	-->		
+        <!-- <IncludeDVTableSearch>true</IncludeDVTableSearch> -->
+		<!-- <RemoveActiveDependencies>true</RemoveActiveDependencies>	-->		
 
 		<!-- <IncludeAutoNumbering >true</IncludeAutoNumbering> -->
 		<!-- <IncludeCalendar >true</IncludeCalendar> -->
@@ -35,8 +36,6 @@
 		<!-- <IncludeOutlookSynchronization >true</IncludeOutlookSynchronization> -->
 		<!-- <IncludeRelationshipRoles >true</IncludeRelationshipRoles> -->
 		<!-- <IncludeSales >true</IncludeSales> -->
-
-
 	
 	</PropertyGroup>
 
