@@ -13,6 +13,9 @@
 *.user.props
 *.user.targets
 
+.ignore-scripts/
+.host/
+
 # Openstrata Standardized User Mode Files
 
 /ostrata.package.manifest

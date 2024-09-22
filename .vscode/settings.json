@@ -1,0 +1,18 @@
+{
+  "task.allowAutomaticTasks": "on",
+  "terminal.integrated.profiles.windows": {
+    "OSDotNetNew": {
+      "overrideName": true,
+      "path": "powershell.exe",
+      "icon": "terminal-powershell",
+      "args": [
+        "-NoExit",
+        "-encodedcommand",
+        "dAByAHkAIAANAAoAewANAAoALgAgACIAQwA6AFwAVQBzAGUAcgBzAFwAUgB5AGEAbgBNAGkAbABsAGUAdAB0AFwAQQBwAHAARABhAHQAYQBcAEwAbwBjAGEAbABcAFAAcgBvAGcAcgBhAG0AcwBcAE0AaQBjAHIAbwBzAG8AZgB0ACAAVgBTACAAQwBvAGQAZQBcAHIAZQBzAG8AdQByAGMAZQBzAFwAYQBwAHAAXABvAHUAdABcAHYAcwBcAHcAbwByAGsAYgBlAG4AYwBoAFwAYwBvAG4AdAByAGkAYgBcAHQAZQByAG0AaQBuAGEAbABcAGIAcgBvAHcAcwBlAHIAXABtAGUAZABpAGEAXABzAGgAZQBsAGwASQBuAHQAZQBnAHIAYQB0AGkAbwBuAC4AcABzADEAIgANAAoAfQANAAoAYwBhAHQAYwBoAA0ACgB7AH0ADQAKAA0ACgAuACAALgBcAHMAcgBjAFwAcwBoAG8AcgB0AGMAdQB0AHMALgBwAHMAMQANAAoA"
+      ]
+    }
+  },
+
+  "terminal.integrated.defaultProfile.windows": "OSDotNetNew"
+
+}
