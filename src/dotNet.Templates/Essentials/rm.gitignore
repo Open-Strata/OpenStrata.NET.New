@@ -23,7 +23,9 @@
 /openstrata.package.manifest
 /openstrata.stratify.manifest
 /package.deploy.log
-/Schemas/
+/[Ss]chemas/
+
+/[Cc]onfig[Dd]ata/data.zip
 
 # OpenStrata deprecated Files
 [Aa][Ll][Mm]/
