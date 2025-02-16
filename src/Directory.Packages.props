@@ -90,6 +90,10 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 		<!--<PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.11.0">
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>-->
+		<!-- <PackageReference Include="OpenStrata.MSBuild.Nuget" Version="1.*" >
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>		 -->
 		<PackageReference Include="GitInfo" Version="3.3.3" Condition="">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>

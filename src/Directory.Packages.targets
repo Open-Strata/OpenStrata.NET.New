@@ -169,12 +169,21 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 			StageReadme;
 			$(GetPackageMetadataFromFilesDependsOn)
 		</GetPackageMetadataFromFilesDependsOn>
+
+		<!-- <MoveNugetPackageToLocalPackageFeedDependsOn>
+			$(MoveNugetPackageToLocalPackageFeedDependsOn);
+            _ProcessGenerateNuspecOutput; 
+		</MoveNugetPackageToLocalPackageFeedDependsOn> -->
+
 	</PropertyGroup>
 	
 
 
+
+
+
 	<Target Name="MoveNugetPackageToLocalPackageFeed" AfterTargets="Pack" 
-			 DependsOnTargets="_ProcessGenerateNuspecOutput; $(MoveNugetPackageToLocalPackageFeedDependsOn)"
+			 DependsOnTargets="$(MoveNugetPackageToLocalPackageFeedDependsOn)"
 	   Condition="'$(MSBuildProjectName)' != 'MSBuild.Nuget'"   >
 
 		<Copy SourceFiles="$(NugetFileAbsolutePath)"
@@ -190,7 +199,7 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 	</Target>
 
 	<Target Name="PushPackage" AfterTargets="Pack" Condition="'$(PushAfterBuild)'=='true'"
-			 DependsOnTargets="_ProcessGenerateNuspecOutput; $(MoveNugetPackageToLocalPackageFeedDependsOn)">
+			 DependsOnTargets="$(MoveNugetPackageToLocalPackageFeedDependsOn)">
 		<Message Text="Attempting to push package" Importance="high" />
 
 		<PropertyGroup>

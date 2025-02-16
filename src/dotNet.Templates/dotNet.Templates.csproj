@@ -149,6 +149,8 @@
 	<Target Name="TemplatesAfterPack" AfterTargets="Pack" DependsOnTargets="MoveNugetPackageToLocalPackageFeed">
 
 		<Exec Command="dotnet new uninstall $(PackageId)" IgnoreExitCode="true" />
+
+		<Warning Text="dotnet new install $(NugetFileAbsolutePath) --force" />
 		
 		<Exec Command="dotnet new install $(NugetFileAbsolutePath) --force" />
 		
