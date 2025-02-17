@@ -1,6 +1,8 @@
 {
   "msbuild-sdks": {
-    "OpenStrata.NET.Sdk": "1.0.3",
-    "OpenStrata.Build.NoTargets": "1.0.3"
+    "OpenStrata.NET.Sdk": "1.0.4",
+    "OpenStrata.Build.NoTargets": "1.0.4",
+    "OpenStrata.Package.NET.Sdk": "1.0.4",  
+    "OpenStrata.Strati.NET.Sdk": "1.0.4"      
   }
 }
