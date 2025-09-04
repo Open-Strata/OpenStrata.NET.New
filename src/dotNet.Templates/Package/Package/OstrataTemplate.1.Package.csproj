@@ -44,7 +44,9 @@
 	  <ProjectReference Condition="Exists('..\ConfigData\OstrataTemplate.1.ConfigData.csproj')" Include="..\ConfigData\OstrataTemplate.1.ConfigData.csproj"  />
 	  <ProjectReference Condition="Exists('..\Deployment\OstrataTemplate.1.Deployment.csproj')" Include="..\Deployment\OstrataTemplate.1.Deployment.csproj" />
 	  <ProjectReference Condition="Exists('..\Publisher\OstrataTemplate.1.Publisher.csproj')" Include="..\Publisher\OstrataTemplate.1.Publisher.csproj" />
-	  <ProjectReference Condition="Exists('..\Solution\OstrataTemplate.1.Solution.cdsproj')" Include="..\Solution\OstrataTemplate.1.Solution.cdsproj" />	  
+    <ProjectReference Condition="Exists('..\Solution\OnFusionCoE.Solution.cdsproj')" Include="..\Solution\OnFusionCoE.Solution.cdsproj" /> 
+    <!--  Adding support for either cdsproj files or csproj files for Solution projects -->
+    <ProjectReference Condition="Exists('..\Solution\OnFusionCoE.Solution.csproj')" Include="..\Solution\OnFusionCoE.Solution.csproj" /> 	  
 	  <ProjectReference Condition="Exists('..\PowerPages\OstrataTemplate.1.PowerPages.csproj')" Include="..\PowerPages\OstrataTemplate.1.PowerPages.csproj" />
 	  <ProjectReference Condition="Exists('..\DocTemplates\OstrataTemplate.1.DocumentTemplates.csproj')" Include="..\DocTemplates\OstrataTemplate.1.DocumentTemplates.csproj" />
   </ItemGroup>
