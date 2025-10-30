@@ -199,19 +199,19 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 	</Target>
 
 	<Target Name="PushPackage" AfterTargets="Pack" Condition="'$(PushAfterBuild)'=='true'"
-			 DependsOnTargets="$(MoveNugetPackageToLocalPackageFeedDependsOn)">
+			 DependsOnTargets="_ProcessGenerateNuspecOutput; $(MoveNugetPackageToLocalPackageFeedDependsOn)">
 		<Message Text="Attempting to push package" Importance="high" />
 
 		<PropertyGroup>
 			<PushPackagePath>$(ProjectDir)$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg</PushPackagePath>
 		</PropertyGroup>
 
-		<Copy
+		<!-- <Copy
 		SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"
 		DestinationFolder="c:\packages" Condition="Exists('$(PushPackagePath)')"
-      />
+      /> -->
 
-		<Exec Command='dotnet nuget push "$(PushPackagePath)" -k AzureDevOps --skip-duplicate' Condition="Exists('$(PushPackagePath)')" />
+       <Exec Command='dotnet nuget push "$(PushPackagePath)" -k $(NugetPushKey) -s $(NugetPushSource)' Condition="Exists('$(PushPackagePath)')" />
 
 	</Target>
 

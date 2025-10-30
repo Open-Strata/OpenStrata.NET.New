@@ -30,6 +30,25 @@ function global:GetSolutions
 }
 
 
+function global:push2nuget
+{
+    param(
+        [Parameter(Mandatory=$true)]        
+        [string]$key
+
+
+    )
+
+        $solutions = GetSolutions
+
+             foreach ($solution in $solutions){
+             Show-Shortcut-Note "dotnet msbuild $solution -verbosity:normal"            
+             dotnet msbuild $solution -verbosity:normal -p:NugetPushKey=$key -p:NugetPushSource=https://www.nuget.org -p:Configuration=Release
+         }
+
+}
+
+
 function global:build
 {
 
