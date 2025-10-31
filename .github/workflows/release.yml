@@ -26,3 +26,4 @@ jobs:
         with:
           name: nupkg
           path: artifacts/*.nupkg
+
