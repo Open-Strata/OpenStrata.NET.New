@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="OpenStrata.Build.NoTargets" xmlns='http://schemas.microsoft.com/developer/msbuild/2003'>
+
+	<PropertyGroup>
+		<PowerAppsTargetsPath>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\PowerApps</PowerAppsTargetsPath>
+	</PropertyGroup>
+
+	<!-- <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"  /> -->
+	<Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.props')" />
+
+
+	<PropertyGroup>
+
+
+		<TargetFramework>net472</TargetFramework>
+		<NoWarn>MSB3245</NoWarn>
+
+		<ProjectGuid>00B3668B-D429-488B-9743-67D1A86A5476</ProjectGuid>
+
+		<DataverseSolutionName>os_test</DataverseSolutionName>
+		<DataversePublisherUniqueName>TestPublisher</DataversePublisherUniqueName>
+		<DataversePublisherPrefix>tpfx</DataversePublisherPrefix>
+
+
+        <!-- <IncludeDVTableSearch>true</IncludeDVTableSearch> -->
+		<!-- <RemoveActiveDependencies>true</RemoveActiveDependencies>	-->		
+
+		<!-- <IncludeAutoNumbering >true</IncludeAutoNumbering> -->
+		<!-- <IncludeCalendar >true</IncludeCalendar> -->
+		<!-- <IncludeCustomization >true</IncludeCustomization> -->
+		<!-- <IncludeEmailTracking >true</IncludeEmailTracking> -->
+		<!-- <IncludeAutoNumbering >true</IncludeAutoNumbering> -->
+		<!-- <IncludeGeneral >true</IncludeGeneral> -->
+		<!-- <IncludeISVConfig >true</IncludeISVConfig> -->
+		<!-- <IncludeMarketing >true</IncludeMarketing> -->
+		<!-- <IncludeOutlookSynchronization >true</IncludeOutlookSynchronization> -->
+		<!-- <IncludeRelationshipRoles >true</IncludeRelationshipRoles> -->
+		<!-- <IncludeSales >true</IncludeSales> -->
+	
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenStrata.MSBuild.Solution" Version="1.*" />
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.Solution" Version="1.*" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />		
+
+
+	  <!--Modify the publisher reference as appropriate -->
+
+	  <!--<PackageReference Include="" Version="1.*">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>-->
+  
+  </ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\PCF\**\*.pcfproj" Exclude="@(PcfProjExcludes)" />
+		<PluginReference Include="..\Plugin\os-test.Plugin.csproj" Condition="Exists('..\Plugin\os-test.Plugin.csproj')"/>
+	</ItemGroup>
+
+	<ItemGroup Label="SolutionXmlDependencyCleanup">
+		<!--<AttributeDependenciesToRemove Include="[AttributeID]" />-->
+		<!--<SolutionDependenciesToRemove Include="[SolutionID]" />-->
+		<!--<RequiredTypeDependenciesToRemove Include="[ComponentType]" />-->
+		<!--<DependentTypeDependenciesToRemove Include="[ComponentType]" />-->
+		<!--<SolutionDependencyMinVersion Include="[SolutionID]" MinVersion="[MinVersion]"  />-->						   
+	</ItemGroup>
+
+
+
+    <!-- <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" /> -->
+    <Import Project="$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets" Condition="Exists('$(PowerAppsTargetsPath)\Microsoft.PowerApps.VisualStudio.Solution.targets')" />
+
+
+</Project>

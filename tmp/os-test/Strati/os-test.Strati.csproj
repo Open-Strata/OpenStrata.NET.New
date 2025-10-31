@@ -1,0 +1,39 @@
+﻿<Project Sdk="OpenStrata.NET.Sdk">
+
+  <PropertyGroup>
+	 <TargetFramework>netstandard2.0</TargetFramework>   
+   <NugetNoWarn>NU5100</NugetNoWarn>
+
+   <ProjectGuid>E24CB7A0-B9D0-493E-B35E-13C04D85CA74</ProjectGuid>    
+
+	  
+	  <!--Uncomment applicable properties below if you want to override the default behavior specified by the package deployer.-->
+	  
+	  <!--<overwriteunmanagedcustomizations>true</overwriteunmanagedcustomizations>-->
+	  <!--<publishworkflowsandactivateplugins>true</publishworkflowsandactivateplugins>-->
+
+
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenStrata.MSBuild.Stratify" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+      <!--<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Condition="Exists('..\ConfigData\os-test.ConfigData.csproj')" Include="..\ConfigData\os-test.ConfigData.csproj"  />
+    <ProjectReference Condition="Exists('..\Deployment\os-test.Deployment.csproj')" Include="..\Deployment\os-test.Deployment.csproj" >
+              <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Condition="Exists('..\Publisher\os-test.Publisher.csproj')" Include="..\Publisher\os-test.Publisher.csproj" />
+    <ProjectReference Condition="Exists('..\Solution\os-test.Solution.cdsproj')" Include="..\Solution\os-test.Solution.cdsproj" /> 
+    <!--  Adding support for either cdsproj files or csproj files for Solution projects -->
+    <ProjectReference Condition="Exists('..\Solution\os-test.Solution.csproj')" Include="..\Solution\os-test.Solution.csproj" />         
+	  <ProjectReference Condition="Exists('..\PowerPages\os-test.PowerPages.csproj')" Include="..\PowerPages\os-test.PowerPages.csproj" />
+    <ProjectReference Condition="Exists('..\DocTemplates\os-test.DocumentTemplates.csproj')" Include="..\DocTemplates\os-test.DocumentTemplates.csproj" />
+  </ItemGroup>
+
+</Project>

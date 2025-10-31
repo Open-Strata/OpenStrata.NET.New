@@ -43,7 +43,7 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 		<IncludeGitInfoInPackage>true</IncludeGitInfoInPackage>
 		<UseGitInfoForVersions>true</UseGitInfoForVersions>
 
-		<GitDefaultBranch>master</GitDefaultBranch>
+		<GitDefaultBranch>main</GitDefaultBranch>
 		
 	</PropertyGroup>
 	

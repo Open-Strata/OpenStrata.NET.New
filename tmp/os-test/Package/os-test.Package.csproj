@@ -1,0 +1,58 @@
+﻿<Project Sdk="OpenStrata.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+
+	  <AssemblyName>os-test.Package</AssemblyName>
+	  <RootNamespace>os_test.Package</RootNamespace>
+
+	  <ProjectGuid>F4B18A5A-C863-40ED-83A4-A11F00AB5493</ProjectGuid>    	  
+	  
+  </PropertyGroup>
+
+  <ItemGroup>
+
+	<PackageReference Include="Microsoft.PowerApps.MSBuild.PDPackage" Version="1.*">
+		<PrivateAssets>all</PrivateAssets>
+		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>	
+
+
+    <PackageReference Include="OpenStrata.MSBuild.Package" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+
+	<PropertyGroup Label="Set Package Properties">
+		<!--<ImportPackageShortName ></ImportPackageShortName>-->
+		<!--<ImportPackageLongName ></ImportPackageLongName>-->
+		<!--<ImportPackageDescription ></ImportPackageDescription>-->
+		<!--<ImportPackageDataFolder ></ImportPackageDataFolder>-->
+	</PropertyGroup>
+
+	<PropertyGroup Label="Set Appsource Package properties">
+		<!--<CreateAppSourcePackage></CreateAppSourcePackage>-->
+		<!--<AppSourceSupportedCountries></AppSourceSupportedCountries>-->
+		<!--<AppSourceLearnMoreLink></AppSourceLearnMoreLink>-->
+		<!--<AppSourceProviderName></AppSourceProviderName>-->
+		<!--<AppSourceStartDate></AppSourceStartDate>-->
+		<!--<AppSourceEndDate></AppSourceEndDate>-->
+	</PropertyGroup>	
+
+  <ItemGroup>
+	  <ProjectReference Condition="Exists('..\ConfigData\os-test.ConfigData.csproj')" Include="..\ConfigData\os-test.ConfigData.csproj"  >
+		  <PrivateAssets>All</PrivateAssets>
+		</ProjectReference>		
+	  <ProjectReference Condition="Exists('..\Deployment\os-test.Deployment.csproj')" Include="..\Deployment\os-test.Deployment.csproj" />
+	  <ProjectReference Condition="Exists('..\Publisher\os-test.Publisher.csproj')" Include="..\Publisher\os-test.Publisher.csproj" />
+      <ProjectReference Condition="Exists('..\Solution\os-test.cdsproj')" Include="..\Solution\os-test.cdsproj" /> 
+      <!--  Adding support for either cdsproj files or csproj files for Solution projects -->
+      <ProjectReference Condition="Exists('..\Solution\os-test..csproj')" Include="..\Solution\os-test.csproj" >
+			<PpProjectType>CdsSolution</PpProjectType>
+		</ProjectReference>	   	  
+	  <ProjectReference Condition="Exists('..\PowerPages\os-test.PowerPages.csproj')" Include="..\PowerPages\os-test.PowerPages.csproj" />
+	  <ProjectReference Condition="Exists('..\DocTemplates\os-test.DocumentTemplates.csproj')" Include="..\DocTemplates\os-test.DocumentTemplates.csproj" />
+  </ItemGroup>
+
+</Project>

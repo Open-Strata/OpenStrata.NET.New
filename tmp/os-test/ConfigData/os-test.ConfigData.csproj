@@ -1,0 +1,22 @@
+﻿<Project Sdk="OpenStrata.Build.NoTargets">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <NoWarn>MSB3245</NoWarn>    
+
+		<ProjectGuid>84D20070-3131-434D-A8B7-CB70FE0D3B03</ProjectGuid>
+
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Openstrata.MSBuild.ConfigData" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Condition="Exists('..\Solution\os-test.Solution.cdsproj')" Include="..\Solution\os-test.Solution.cdsproj" />    
+  </ItemGroup>
+
+</Project>

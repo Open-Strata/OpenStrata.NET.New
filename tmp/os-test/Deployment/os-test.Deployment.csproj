@@ -1,0 +1,19 @@
+﻿<Project Sdk="OpenStrata.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+	  <AssemblyName>os-test.Deployment</AssemblyName>
+	  <RootNamespace>os_test.Deployment</RootNamespace>	
+
+
+		<ProjectGuid>D9BB37AF-3BA0-429F-BBE8-D424510C5CF3</ProjectGuid>    
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenStrata.MSBuild.Deployment" Version="1.*">
+		     <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

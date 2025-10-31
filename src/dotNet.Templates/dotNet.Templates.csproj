@@ -68,6 +68,10 @@
 		<PackageLicenseExpression>APSL-2.0</PackageLicenseExpression>		
 		<PackageIcon>ICON.png</PackageIcon>
 		<PackageIconUrl />
+		<!-- Repository metadata -->
+		<RepositoryUrl>https://github.com/Open-Strata/OpenStrata.NET.New</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageProjectUrl>https://github.com/Open-Strata/OpenStrata.NET.New</PackageProjectUrl>
 	</PropertyGroup>	
 
   <ItemGroup>

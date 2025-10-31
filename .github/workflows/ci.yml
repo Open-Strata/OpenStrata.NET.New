@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-pack-smoketest:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore
+        run: dotnet restore src\dotNet.Templates
+
+      - name: Build
+        run: dotnet build src\dotNet.Templates -c Release --no-restore
+
+      - name: Pack (no push)
+        run: dotnet pack src\dotNet.Templates -c Release -o ./artifacts /p:PushAfterBuild=false
+
+      - name: Find nupkg
+        id: find
+        run: |
+          $pkg = Get-ChildItem -Path ./artifacts -Filter "*.nupkg" -Recurse | Select-Object -First 1
+          if (-not $pkg) { Write-Error "No nupkg found"; exit 1 }
+          Write-Host "::set-output name=path::$($pkg.FullName)"
+
+      - name: Smoke test - install and create
+        run: |
+          $nupkg = "${{ steps.find.outputs.path }}"
+          $tmp = Join-Path $env:RUNNER_TEMP "os-template-test"
+          Remove-Item -Force -Recurse -ErrorAction SilentlyContinue $tmp
+          New-Item -ItemType Directory -Path $tmp | Out-Null
+          Push-Location $tmp
+          dotnet new --install $nupkg
+          dotnet new os-dotnet -pn "GHTest" -pp "ghtest"
+          if (-not (Test-Path "ghtest.sln")) { Write-Error "Smoke test failed: solution not created"; exit 1 }
+          Pop-Location

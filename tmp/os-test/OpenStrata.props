@@ -1,0 +1,23 @@
+<Project  xmlns='http://schemas.microsoft.com/developer/msbuild/2003' >
+
+	<PropertyGroup>
+		<DotOstrataPath>$(MSBuildThisFileDirectory).openstrata\</DotOstrataPath>
+        <!-- <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally> -->
+        <StrataVersionsProps>$([MSBuild]::GetPathOfFileAbove('strata-versions.props', '$(MSBuildProjectDirectory)'))</StrataVersionsProps>		
+	</PropertyGroup>
+
+	<!-- <ItemGroup>
+		<PackageVersion Include="Openstrata.MSBuild" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.Solution" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.ConfigData" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.Package" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.Strati" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.Plugin" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.DocumentTemplate" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.PowerPages" Version="1.*" />
+		<PackageVersion Include="Openstrata.MSBuild.PCF" Version="1.*" />																
+	</ItemGroup> -->
+
+	<Import Project="$(StrataVersionsProps)" Condition=" '$(StrataVersionsProps)' != '' " />
+
+</Project>

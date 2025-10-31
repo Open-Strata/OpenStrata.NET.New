@@ -206,12 +206,19 @@ Copyright (c) 74Bravo LLC and Contributors. All rights reserved.. All rights res
 			<PushPackagePath>$(ProjectDir)$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg</PushPackagePath>
 		</PropertyGroup>
 
-		<!-- <Copy
-		SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"
-		DestinationFolder="c:\packages" Condition="Exists('$(PushPackagePath)')"
-      /> -->
+				<!-- Only attempt push when both NugetPushSource and NugetPushKey are provided -->
+				<PropertyGroup>
+						<CanPushToNuget Condition=" '$(NugetPushSource)' != '' and '$(NugetPushKey)' != ''">true</CanPushToNuget>
+				</PropertyGroup>
 
-       <Exec Command='dotnet nuget push "$(PushPackagePath)" -k $(NugetPushKey) -s $(NugetPushSource)' Condition="Exists('$(PushPackagePath)')" />
+				<Warning Text='dotnet nuget push "$(PushPackagePath)" -k $(NugetPushKey) -s $(NugetPushSource)' Condition="'$(CanPushToNuget)' == 'true'" />
+
+				<!-- <Copy
+				SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg"
+				DestinationFolder="c:\packages" Condition="Exists('$(PushPackagePath)')"
+			/> -->
+
+			 <Exec Command='dotnet nuget push "$(PushPackagePath)" -k $(NugetPushKey) -s $(NugetPushSource)' Condition="Exists('$(PushPackagePath)') and '$(CanPushToNuget)' == 'true'" />
 
 	</Target>
 

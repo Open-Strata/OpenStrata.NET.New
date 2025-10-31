@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+    <!-- If you need a local feed for development, copy this file to NuGet.Config and update the path or source. -->
+    <!-- <add key="local" value="c:\packages" /> -->
+  </packageSources>
+</configuration>
