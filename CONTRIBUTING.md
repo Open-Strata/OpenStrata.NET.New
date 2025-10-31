@@ -20,6 +20,14 @@ Testing templates
 
 - After pack, install the generated nupkg locally and then run `dotnet new <shortName>` to scaffold a project.
 
+Helper scripts
+
+- `scripts/pack-and-install.ps1` — builds, packs and installs the produced nupkg locally for testing.
+
+Releasing
+
+See `RELEASE.md` for instructions on creating a release and publishing to NuGet.org.
+
 Code of conduct
 
 Please read `CODE_OF_CONDUCT.md`.

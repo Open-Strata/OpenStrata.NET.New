@@ -21,8 +21,33 @@ jobs:
           dotnet restore src\dotNet.Templates
           dotnet pack src\dotNet.Templates -c Release -o ./artifacts /p:PushAfterBuild=false
 
+      - name: Optional: Import signing certificate
+        if: ${{ startsWith(github.ref, 'refs/tags/') && secrets.SIGNING_PFX_BASE64 != '' }}
+        env:
+          SIGNING_PFX_BASE64: ${{ secrets.SIGNING_PFX_BASE64 }}
+          SIGNING_PFX_PASSWORD: ${{ secrets.SIGNING_PFX_PASSWORD }}
+        run: |
+          $pfxPath = Join-Path $Env:RUNNER_TEMP "signing.pfx"
+          [System.Convert]::FromBase64String($env:SIGNING_PFX_BASE64) | Set-Content -Encoding Byte -Path $pfxPath
+          Write-Host "Signing certificate written to $pfxPath"
+
+      - name: Optional: Sign package
+        if: ${{ startsWith(github.ref, 'refs/tags/') && secrets.SIGNING_PFX_BASE64 != '' }}
+        env:
+          SIGNING_PFX_PASSWORD: ${{ secrets.SIGNING_PFX_PASSWORD }}
+        run: |
+          $pkg = Get-ChildItem -Path ./artifacts -Filter "*.nupkg" | Select-Object -First 1
+          if (-not $pkg) { Write-Error "No package found"; exit 1 }
+          $pfxPath = Join-Path $Env:RUNNER_TEMP "signing.pfx"
+          # Use dotnet nuget sign if available; fall back to nuget.exe if necessary
+          dotnet nuget sign $pkg.FullName --certificate-path $pfxPath --certificate-password $env:SIGNING_PFX_PASSWORD --timestamper "http://timestamp.digicert.com" || (
+            Write-Host "dotnet nuget sign failed or not available; attempting nuget.exe"
+            Invoke-WebRequest -Uri https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -OutFile nuget.exe
+            & .\nuget.exe sign $pkg.FullName -CertificatePath $pfxPath -Timestamper http://timestamp.digicert.com -CertificatePassword $env:SIGNING_PFX_PASSWORD
+          )
+
       - name: Publish to NuGet
-        if: startsWith(github.ref, 'refs/tags/') && env.NUGET_API_KEY != ''
+        if: ${{ startsWith(github.ref, 'refs/tags/') && secrets.NUGET_API_KEY != '' }}
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
