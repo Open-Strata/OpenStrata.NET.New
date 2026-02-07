@@ -1,0 +1,46 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      NugetPushKey:
+        description: 'NuGet API key (if left empty, will fall back to repository secret NUGET_API_KEY)'
+        required: false
+        default: ''
+      NugetPushSource:
+        description: 'NuGet push source URL'
+        required: false
+        default: 'https://api.nuget.org/v3/index.json'
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Publish via MSBuild PushPackage
+        env:
+          DEFAULT_NUGET_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          Write-Host "Reading inputs and secrets..."
+          $inputKey = '${{ github.event.inputs.NugetPushKey }}'
+          if ($inputKey -eq '') {
+            $inputKey = $env:DEFAULT_NUGET_KEY
+          }
+          $pushSource = '${{ github.event.inputs.NugetPushSource }}'
+          if ($pushSource -eq '') {
+            $pushSource = 'https://api.nuget.org/v3/index.json'
+          }
+
+          if ($inputKey -eq '') {
+            Write-Host "NuGet API key not provided via input or secret. Skipping publish."
+            exit 0
+          }
+
+          Write-Host "Publishing package(s) via MSBuild PushPackage target to $pushSource"
+          dotnet msbuild src\dotNet.Templates\dotNet.Templates.csproj -verbosity:normal -t:PushPackage -p:NugetPushKey="$inputKey" -p:NugetPushSource="$pushSource" -p:Configuration=Release
