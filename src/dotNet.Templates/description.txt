@@ -1,37 +1,292 @@
-﻿**OpenStrata.NET.Templates** is a .Net Core Template package containing templates for the various OpenStrata project types and an OpenStrata Solution template containing each of the OpenStrata project types with project references and dependencies pre set.
+﻿**OpenStrata.NET.Templates** provides comprehensive `dotnet new` templates for building enterprise-ready Microsoft Power Platform solutions. This template pack revolutionizes Power Platform development by introducing NuGet-style package management, enabling teams to create reusable "Strati" packages with automatic dependency resolution and streamlined deployment workflows.
 
-To get started, install the templates using the dotnet CLI new command as seen below.
+## 🎯 What is OpenStrata?
+
+OpenStrata transforms Power Platform development from manual, copy-paste solutions into a modern package-based ecosystem. Create **Strati packages** - NuGet packages containing complete Power Platform capabilities (Dataverse solutions, deployment logic, configuration data, plugins) that can reference other Strati packages, enabling true component reuse with automatic dependency sequencing.
+
+**Before OpenStrata**: Manual deployments, copy-paste solutions, dependency coordination nightmares  
+**With OpenStrata**: Package-based development, automated deployments, zero-effort dependency management
+
+## ✨ Key Benefits
+
+- **📦 Package-Based Development** - Bundle complete Power Platform capabilities into distributable NuGet packages
+- **🔗 Dependency Management** - Reference other Strati packages with automatic resolution and deployment sequencing
+- **⚡ Rapid Scaffolding** - Generate complete solution structures in seconds with proper conventions pre-configured
+- **🚀 Automated Deployments** - MSBuild-integrated deployment workflows for consistent, repeatable releases
+- **🏗️ Production-Ready Structure** - Industry best practices baked into every template
+- **🔄 CI/CD Integration** - Seamless integration with GitHub Actions, Azure DevOps, and other platforms
+- **📚 Multi-Project Orchestration** - Coordinate plugins, PCF controls, solutions, and deployment logic in one cohesive system
+
+## 🚀 Quick Start
+
+### Prerequisites
+- .NET SDK 6.0 or later
+- Power Platform CLI (pac)
+- Microsoft Dataverse environment
+
+### Installation
+
+Install the templates using the .NET CLI:
+
+```bash
+dotnet new install OpenStrata.NET.Templates
+```
+
+### Create Your First Solution
+
+```bash
+# Create a new folder for your solution
+mkdir ContosoSales
+cd ContosoSales
+
+# Generate complete OpenStrata solution
+dotnet new os-dotnet -pn "Contoso Corporation" -pp "contoso"
+
+# Build and create your first Strati package
+dotnet build
+```
+
+This creates a complete solution with:
+- **Solution** project for Dataverse components
+- **Package** project for Package Deployer orchestration
+- **Strati** project for NuGet package creation
+- **Deployment** project for custom deployment logic
+- **ConfigData** project for configuration and reference data
+
+💡 **Tip**: Use `-n [solution-name]` to specify a name different from the folder name.
+
+## 📦 Template Catalog
+
+### 🏗️ Solution Templates
+
+#### `os-dotnet` - Complete OpenStrata Solution
+The primary template for starting new Power Platform projects. Creates a fully-configured solution with all core projects properly referenced and ready to build.
+
+**Generated Projects:**
+- Solution (Dataverse components - .cdsproj)
+- Package (Package Deployer orchestration)
+- Strati (NuGet package creation and dependency management)
+- Deployment (Custom C# deployment extensions)
+- ConfigData (Configuration and reference data management)
+
+**Parameters:**
+- `-pn` | `--publisher-name` - Your organization name (e.g., "Contoso Corporation")
+- `-pp` | `--publisher-prefix` - Schema prefix for custom entities (e.g., "contoso")
+- `-n` | `--name` - Solution name (defaults to folder name)
+
+**Example:**
+```bash
+dotnet new os-dotnet -n MyERPSolution -pn "ACME Corp" -pp "acme"
+```
+
+---
+
+### 🔌 Component Project Templates
+
+Add these to existing OpenStrata solutions to extend functionality:
+
+#### `os-plugin` - Dynamics 365 Plugin Project
+Creates a C# class library for developing Dynamics 365 plugins (server-side event handlers).
+
+**Use Cases:**
+- Custom business logic triggered by data events
+- Validation and data transformation
+- Integration with external systems
+- Complex calculations and workflows
+
+**Example:**
+```bash
+dotnet new os-plugin -n OrderValidation
+```
+
+#### `os-pcf` - Power Apps Component Framework Project
+Scaffolds a PCF project for building custom Power Apps controls with TypeScript/React.
+
+**Use Cases:**
+- Custom UI controls for model-driven apps
+- Canvas app code components
+- Data visualization widgets
+- Third-party library integrations
+
+**Example:**
+```bash
+dotnet new os-pcf -n MapControl
+```
+
+#### `os-powerpages` - Power Pages Website Project
+Creates a Power Pages (formerly Power Apps Portals) website project structure.
+
+**Use Cases:**
+- External-facing websites
+- Customer self-service portals
+- Partner collaboration sites
+- Community forums
+
+**Example:**
+```bash
+dotnet new os-powerpages -n CustomerPortal
+```
+
+#### `os-doctemplates` - Document Templates Project
+Sets up document template management for automated document generation.
+
+**Use Cases:**
+- Contract generation
+- Report templates
+- Email templates
+- Invoice and quote formatting
+
+**Example:**
+```bash
+dotnet new os-doctemplates -n ContractTemplates
+```
+
+---
+
+### 🎯 Core Infrastructure Templates
+
+Individual project types from the main solution (typically used when customizing or rebuilding):
+
+#### `os-solution` - Dataverse Solution Project
+Standalone Dataverse solution project (.cdsproj) for managing Power Platform components.
+
+#### `os-package` - Package Deployer Project
+Package Deployer orchestration project for coordinating deployment activities.
+
+#### `os-strati` - Strati Package Project
+Strati manifest and NuGet packaging project - the heart of the OpenStrata distribution model.
+
+#### `os-deployment` - Deployment Logic Project
+C# project for implementing custom deployment extensions (inherits from ImportPackageStrataBase).
+
+#### `os-configdata` - Configuration Data Project
+Manages configuration records, reference data, and environment-specific settings.
+
+---
+
+### ⚙️ Configuration Templates
+
+#### `os-essentials` - Essential Configuration Files
+Adds OpenStrata essential configuration files and folder structure (.openstrata folder, schemas, scripts).
+
+#### `os-props` - OpenStrata Properties File
+Generates an OpenStrata.props file for shared MSBuild properties across your solution.
+
+#### `os-strataversions` - Strati Version Management
+Creates a Strata-Versions file for centralized version management of Strati package dependencies.
+
+## 💼 Real-World Workflows
+
+### Workflow 1: Building a Reusable Security Framework
+
+```bash
+# Create base security Strati package
+mkdir SecurityFramework
+cd SecurityFramework
+dotnet new os-dotnet -pn "Your Company" -pp "sec"
+
+# Add custom roles and permissions in Dataverse
+# Export and build
+dotnet build -c Release
+
+# Publish to your NuGet feed
+dotnet nuget push Strati/bin/Release/*.nupkg --source YourFeed
+```
+
+Now other teams can reference this security framework:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="YourCompany.SecurityFramework" Version="1.*" />
+</ItemGroup>
+```
+
+### Workflow 2: Multi-Component Sales Solution
+
+```bash
+# Create main solution
+dotnet new os-dotnet -pn "Contoso" -pp "sales"
+
+# Add custom business logic
+dotnet new os-plugin -n PricingEngine
+
+# Add custom UI controls
+dotnet new os-pcf -n ProductCatalog
+
+# Add customer portal
+dotnet new os-powerpages -n CustomerOrders
+
+# Build everything together
+dotnet build -c Release
+```
+
+### Workflow 3: Enterprise Template for Your Organization
+
+Create a standardized starting point for all your company's Power Platform projects by building on OpenStrata templates and establishing your own conventions.
+
+## 🔄 Development Lifecycle
 
 ```
-dotnet new --install OpenStrata.NET.Templates
+1. Create Solution
+   └─> dotnet new os-dotnet
+
+2. Develop Components
+   └─> Build customizations in Power Apps
+   └─> Write plugins, PCF controls
+   └─> Configure deployment logic
+
+3. Export & Build
+   └─> pac solution sync
+   └─> dotnet build -c Release
+
+4. Create Strati Package
+   └─> Automatically created during build
+   └─> Contains all components + dependencies
+
+5. Publish & Distribute
+   └─> Push to NuGet feed
+   └─> Teams can reference your package
+
+6. Deploy with Dependencies
+   └─> dotnet msbuild -t:Import
+   └─> Automatic dependency resolution
+   └─> Sequential deployment
 ```
-Next, create a folder in which you want to create  a new MSBuild Project/ Visual Studio Solution.
 
-We recommend using the `os-dotnet` template to get started.
+## 🎓 Integration with OpenStrata Ecosystem
 
-From the directory just created, run the following command.
+These templates are part of the comprehensive OpenStrata Initiative:
 
-```
-dotnet new os-dotnet -pn <publisher-name> -pp <publisher-prefix>
-```
-  ⚠  
-*By default, the folder name will be used as the solution name unless --name argument is used.  If you prefer a  different name than the folder name, then use the following command, replacing preferred name with your preference.*
+- **OpenStrata.MSBuild** - Core packaging and Strati creation engine
+- **OpenStrata.Sdk** - MSBuild SDK infrastructure for project types
+- **OpenStrata.DevOps** - Power Platform CLI automation, Git workflows, GitHub Actions integration
+- **OpenStrata.Nuget** - Enhanced NuGet packaging for Strati distribution
 
-```
-dotnet new os-dotnet -n [preferred-name]  -pn [publisher-name] -pp [publisher-prefix]
-```
-  ⚠  
-*As a best practice, we recommend one dotNet solution
- per code repository.*
+All components work together seamlessly to provide an end-to-end Power Platform ALM solution.
 
+## 📚 Learn More
 
- For additonal insight into each OpenStrata project type:  
+### Documentation
+- [Template Documentation](https://github.com/Open-Strata/OpenStrata.NET.New/blob/main/docs/TEMPLATES.md) - Detailed template reference
+- [How OpenStrata Works](https://github.com/Open-Strata/OpenStrata.MSBuild/blob/main/HOW-IT-WORKS.md) - Technical deep dive
+- [Contributing Guide](https://github.com/Open-Strata/OpenStrata.NET.New/blob/main/CONTRIBUTING.md) - Join the initiative
 
-- [Strati Project](https://www.nuget.org/packages/OpenStrata.MSBuild.Stratify)  
-- [Package Project](https://www.nuget.org/packages/OpenStrata.MSBuild.Package)
-- [Deployment Project](https://www.nuget.org/packages/OpenStrata.MSBuild.Deployment)
-- [ConfigData Project](https://www.nuget.org/packages/OpenStrata.MSBuild.ConfigData)
-- [Solution Project](https://www.nuget.org/packages/OpenStrata.MSBuild.Solution)
-- [Plugin Project](https://www.nuget.org/packages/OpenStrata.MSBuild.Plugin)
-- [PCF Project](https://www.nuget.org/packages/OpenStrata.MSBuild.PCF)
+### Resources
+- [OpenStrata Initiative](https://github.com/Open-Strata) - GitHub organization
+- [OpenStrata.MSBuild](https://github.com/Open-Strata/OpenStrata.MSBuild) - Core repository
+- [Sample Projects](https://github.com/Open-Strata/OpenStrata.MSBuild#examples) - Real-world examples
+
+## 🌟 About the OpenStrata Initiative
+
+The OpenStrata Initiative is an open-source project revolutionizing Microsoft Power Platform development by introducing modern package management practices. Our mission is to enable organizations to **Distribute, Discover, Consume, and Integrate (DDCI)** production-ready Power Platform capabilities through:
+
+- **Reusable Strati Packages** - Complete capabilities packaged as NuGet packages
+- **Dependency Management** - Automatic resolution of package dependencies
+- **Automated Deployment** - Zero-effort dependency sequencing
+- **Enterprise Scale** - Built for large organizations with multiple teams
+
+---
+
+**Copyright © 74Bravo LLC and Contributors. All rights reserved.**  
+**License**: Apache License 2.0
 
